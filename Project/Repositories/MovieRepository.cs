@@ -17,7 +17,7 @@ namespace Project.Repositories
        
 
         // List<Movie>
-        public async static Task<List<Movie>> GetMoviesAsync(int parLimit = 20, int parPage = 1, 
+        public async static Task<List<Movie>> GetMoviesAsync(int parLimit = 10, int parPage = 1, 
         string parQuality = "all", int parMinimum_rating = 0, string parQuery_term = "0", string parGenre = "all", 
         string parSort_by = "rating", string parOrder_by = "desc", bool parWith_rt_ratings = false)
         {

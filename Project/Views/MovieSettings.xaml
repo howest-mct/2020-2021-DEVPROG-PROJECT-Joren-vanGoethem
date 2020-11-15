@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project.Views.MovieSettings"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <!--filter here-->
+            <Label Text="Movies Per Page: "/>
+            <Label Text="Qualities To List: "/>
+            <Label Text="Minimum IMDB Rating: "/>
+            <Label Text="Genres: "/>
+            <Label Text="Sort By: "/>
+            <Label Text="Order By: "/>
+            
+            
+
+
+
+
+            <Grid Grid.Row="2" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Cancelbtn" Text="Cancel" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="Cancelbtn_Clicked"/>
+
+                <Button x:Name="Savebtn" Text="Save" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="Savebtn_Clicked"/>
+
+            </Grid>
+
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,24 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project.MainPage">
+             x:Class="Project.MainPage"
+             BackgroundColor="#1d1d1d"
+             NavigationPage.HasNavigationBar="False">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="43"/>
+            </Grid.RowDefinitions>
+
+            <!--filter here-->
+
+            <Button x:Name="MovieFilterBtn" Text="Settings" WidthRequest="500" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>
+
+            <ListView x:Name="lvwMovies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image x:Name="CoverImage" Grid.Column="0" Aspect="AspectFit" Source="{Binding medium_cover_image}" Margin="1,1,0,1"/>
+
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label x:Name="lblTitle" Text="{Binding title}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
+                                    <Label x:Name="lblDescription" Text="{Binding genrestring}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    <Label x:Name="lblWeight" Text="{Binding resolutions}" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="ImdbLogo" HeightRequest="20" Aspect="AspectFit" Grid.Column="0" Source="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                        <Label x:Name="lblrating" Grid.Column="1" Margin="5,0,0,0" Text="{Binding rating}" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="2" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="PrevPagebtn" Text="Prev Page" Grid.Column="0" WidthRequest="100" TextColor="#171717" BackgroundColor="#919191" VerticalOptions="Center" HorizontalOptions="Start" Clicked="PrevPagebtn_Clicked"/>
+                <Label x:Name="Pagelbl" Text="Page 1" Grid.Column="1" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Button x:Name="NextPagebtn" Text="Next Page" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="NextPagebtn_Clicked"/>
+
+             </Grid>
+
+
+
+
+            </Grid>
+    </ContentPage.Content>
 
 </ContentPage>

@@ -32,6 +32,38 @@ namespace Project.Models
         public Torrent[] torrents { get; set; }
         public string date_uploaded { get; set; }
         public int date_uploaded_unix { get; set; }
+
+        public string resolutions
+        {
+            get
+            {
+                string resolutionstring = "";
+                foreach(Torrent t in torrents)
+                {
+                    resolutionstring += t.quality + ", ";
+                }
+                resolutionstring = resolutionstring.TrimEnd(' ', ',');
+
+
+                return resolutionstring;
+
+            }
+        }
+        public string genrestring
+        {
+            get
+            {
+                string genrestring = "";
+                foreach (string s in genres)
+                {
+                    genrestring += s + " / ";
+                }
+                genrestring = genrestring.TrimEnd(' ', '/');
+
+                return genrestring;
+
+            }
+        }
     }
 
     public class Torrent
