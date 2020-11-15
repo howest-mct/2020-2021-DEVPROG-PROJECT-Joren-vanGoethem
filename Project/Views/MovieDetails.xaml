@@ -1,12 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project.Views.MovieDetails">
+             x:Class="Project.Views.MovieDetails"
+             BackgroundColor="#1d1d1d"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Label x:Name="MovieNamelbl" Text="Movie Name" Grid.Row="0" FontSize="19" TextColor="White" FontAttributes="Bold"/>
+            <Label x:Name="Yearlbl" Text="Year" Grid.Row="1" FontSize="17" TextColor="White"/>
+            <Label x:Name="Genreslbl" Text="Genres" Grid.Row="2" FontSize="17" TextColor="White"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="MoviePicture" Source="" Aspect="AspectFit" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Margin="2" />
+
+                <Grid Grid.Column="1" HorizontalOptions="StartAndExpand" Margin="3" RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label x:Name="Runtimelbl" Text="Runtime" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18"/>
+                    
+                    <Label x:Name="Stufflbl" Text="Stuff" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18"/>
+                    
+                    <Label x:Name="Stuff2lbl" Text="Stuff2" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18"/>
+                    
+                    <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="ImdbLogo" HeightRequest="20" Aspect="AspectFit" Grid.Column="0" Source="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <Label x:Name="Ratinglbl" Grid.Column="1" Margin="5,0,0,0" Text="Rating" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18"/>
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

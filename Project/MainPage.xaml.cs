@@ -57,12 +57,29 @@ namespace Project
             lvwMovies.ItemsSource = MovieList;
         }
 
-        private async Task PrevPagebtn_Clicked(object sender, EventArgs e)
+        private void MovieFilterBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MovieSettings(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By));
+        }
+
+        private void lvwMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (lvwMovies.SelectedItem != null) //Debug.WriteLine("No items selected");
+            {
+                Movie selected = (Movie)lvwMovies.SelectedItem;
+                Navigation.PushAsync(new MovieDetails(selected));
+                lvwMovies.SelectedItem = null;
+            }
+        }
+
+
+
+        private void PrevPagebtn_Clicked(object sender, EventArgs e)
         {
             if (Page > 1)
             {
                 Page -= 1;
-                await LoadMovies(page: Page);
+                LoadMovies(page: Page);
                 Pagelbl.Text = $"Page {Page}";
                 lvwMovies.ScrollTo(MovieList[0], ScrollToPosition.Start, true);
             }
@@ -73,10 +90,10 @@ namespace Project
             }
         }
 
-        private async Task NextPagebtn_Clicked(object sender, EventArgs e)
+        private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
             Page += 1;
-            await LoadMovies(page: Page);
+            LoadMovies(page: Page);
             if (Page > 1)
             {
                 PrevPagebtn.BackgroundColor = Color.FromHex("#5da93c");
@@ -84,11 +101,6 @@ namespace Project
                 lvwMovies.ScrollTo(MovieList[0], ScrollToPosition.Start, true);
             }
             Pagelbl.Text = $"Page {Page}";
-        }
-
-        private async Task MovieFilterBtn_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new MovieSettings(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By));
         }
     }
 }

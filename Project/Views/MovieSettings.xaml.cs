@@ -45,14 +45,13 @@ namespace Project.Views
             Debug.WriteLine("test");
         }
 
-        private async Task Savebtn_Clicked(object sender, EventArgs e)
+        private void Cancelbtn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By));
+            Navigation.PopAsync();
         }
-
-        private async Task Cancelbtn_Clicked(object sender, EventArgs e)
+        private void Savebtn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            Navigation.PushAsync(new MainPage(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By));
         }
     }
 }

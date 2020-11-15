@@ -17,7 +17,7 @@
 
             <Button x:Name="MovieFilterBtn" Text="Settings" WidthRequest="500" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>
 
-            <ListView x:Name="lvwMovies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717">
+            <ListView x:Name="lvwMovies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717" ItemSelected="lvwMovies_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

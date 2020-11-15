@@ -64,6 +64,24 @@ namespace Project.Models
 
             }
         }
+
+        public string runtimestring
+        {
+            get
+            {
+                if (runtime > 60)
+                {
+                    int hours = runtime / 60;
+                    int minutes = runtime - (hours * 60);
+                    string result = $"{hours}h {minutes}m";
+                    return result;
+                }
+                else
+                {
+                    return $"{Convert.ToString(runtime)}m";
+                }
+            }
+        }
     }
 
     public class Torrent
