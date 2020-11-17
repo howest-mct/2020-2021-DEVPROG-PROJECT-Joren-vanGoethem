@@ -17,30 +17,30 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieSettings : ContentPage
     {
-        public int Limit { get; set; }
-        public int Page { get; set; }
-        public string Quality { get; set; }
-        public int Minimum_Rating { get; set; }
-        public string Query { get; set; }
-        public string Genre { get; set; }
-        public string Sort_By { get; set; }
-        public string Order_By { get; set; }
+        public int limit { get; set; }
+        public int page { get; set; }
+        public string quality { get; set; }
+        public int minimumRating { get; set; }
+        public string query { get; set; }
+        public string genre { get; set; }
+        public string sortBy { get; set; }
+        public string orderBy { get; set; }
 
-        public MovieSettings(int limit, int page, string quality, int minimum_rating, string query, string genre, string sort_by, string order_by)
+        public MovieSettings(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            Limit = limit;
-            Page = page;
-            Quality = quality;
-            Minimum_Rating = minimum_rating;
-            Query = query;
-            Genre = genre;
-            Sort_By = sort_by;
-            Order_By = order_by;
+            //limit = limit;
+            //page = page;
+            //quality = quality;
+            //minimumRating = minimumRating;
+            //query = query;
+            //genre = genre;
+            //sortBy = sortBy;
+            //orderBy = orderBy;
             InitializeComponent();
-            LoadSettings(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By);
+            LoadSettings(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
         }
 
-        private async Task LoadSettings(int limit, int page, string quality, int minimum_rating, string query, string genre, string sort_by, string order_by)
+        private async Task LoadSettings(int limit, int page, string quality, int minimum_rating, string query, string genre, string sortBy, string orderBy)
         {
             Debug.WriteLine("test");
         }
@@ -51,7 +51,7 @@ namespace Project.Views
         }
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MainPage(Limit, Page, Quality, Minimum_Rating, Query, Genre, Sort_By, Order_By));
+            Navigation.PushAsync(new MainPage(limit, page, quality, minimumRating, query, genre, sortBy, orderBy));
         }
     }
 }

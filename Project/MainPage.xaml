@@ -38,7 +38,7 @@
                                     </Grid.RowDefinitions>
 
                                     <Label x:Name="lblTitle" Text="{Binding title}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
-                                    <Label x:Name="lblDescription" Text="{Binding genrestring}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    <Label x:Name="lblDescription" Text="{Binding genreString}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     <Label x:Name="lblWeight" Text="{Binding resolutions}" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End">
                                         <Grid.ColumnDefinitions>

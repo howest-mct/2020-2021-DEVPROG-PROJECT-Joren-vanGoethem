@@ -13,21 +13,21 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieDetails : ContentPage
     {
-        public Movie SelectedMovie { get; set; }
+        public Movie selectedMovie { get; set; }
         public MovieDetails(Movie movie)
         {
-            SelectedMovie = movie;
+            selectedMovie = movie;
             InitializeComponent();
             LoadMovieDetails();
         }
         private async Task LoadMovieDetails()
         {
-            MovieNamelbl.Text = SelectedMovie.title;
-            Yearlbl.Text = Convert.ToString(SelectedMovie.year);
-            Genreslbl.Text = SelectedMovie.genrestring;
-            MoviePicture.Source = SelectedMovie.large_cover_image;
-            Runtimelbl.Text = SelectedMovie.runtimestring;
-            Ratinglbl.Text = Convert.ToString(SelectedMovie.rating);
+            MovieNamelbl.Text = selectedMovie.title;
+            Yearlbl.Text = Convert.ToString(selectedMovie.year);
+            Genreslbl.Text = selectedMovie.genreString;
+            MoviePicture.Source = selectedMovie.large_cover_image;
+            Runtimelbl.Text = selectedMovie.runtimeString;
+            Ratinglbl.Text = Convert.ToString(selectedMovie.rating);
         }
     }
 }

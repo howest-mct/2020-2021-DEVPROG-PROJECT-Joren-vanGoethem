@@ -37,35 +37,35 @@ namespace Project.Models
         {
             get
             {
-                string resolutionstring = "";
+                string resolutionString = "";
                 foreach(Torrent t in torrents)
                 {
-                    resolutionstring += t.quality + ", ";
+                    resolutionString += t.quality + ", ";
                 }
-                resolutionstring = resolutionstring.TrimEnd(' ', ',');
+                resolutionString = resolutionString.TrimEnd(' ', ',');
 
 
-                return resolutionstring;
+                return resolutionString;
 
             }
         }
-        public string genrestring
+        public string genreString
         {
             get
             {
-                string genrestring = "";
+                string genreString = "";
                 foreach (string s in genres)
                 {
-                    genrestring += s + " / ";
+                    genreString += s + " / ";
                 }
-                genrestring = genrestring.TrimEnd(' ', '/');
+                genreString = genreString.TrimEnd(' ', '/');
 
-                return genrestring;
+                return genreString;
 
             }
         }
 
-        public string runtimestring
+        public string runtimeString
         {
             get
             {

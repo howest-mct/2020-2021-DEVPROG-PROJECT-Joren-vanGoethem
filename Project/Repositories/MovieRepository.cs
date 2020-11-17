@@ -17,18 +17,18 @@ namespace Project.Repositories
        
 
         // List<Movie>
-        public async static Task<List<Movie>> GetMoviesAsync(int parLimit = 10, int parPage = 1, 
-        string parQuality = "all", int parMinimum_rating = 0, string parQuery_term = "0", string parGenre = "all", 
-        string parSort_by = "rating", string parOrder_by = "desc", bool parWith_rt_ratings = false)
+        public async static Task<List<Movie>> GetMoviesAsync(int limit = 10, int page = 1, 
+        string quality = "all", int minimumRating = 0, string queryTerm = "0", string genre = "all", 
+        string sortBy = "rating", string orderBy = "desc", bool withRtRatings = false)
         {
             List<Movie> Movies = new List<Movie>();
 
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
             {
-                string Url = $"{_APILINK}list_movies.json?limit={parLimit}&page={parPage}" +
-                    $"&quality={parQuality}&minimum_rating={parMinimum_rating}&query_term={parQuery_term}" +
-                    $"&genre={parGenre}&sort_by={parSort_by}&order_by={parOrder_by}&with_rt_ratings={parWith_rt_ratings}"; //Only the part after the api/v2/ and ALWAYS add ?
+                string Url = $"{_APILINK}list_movies.json?limit={limit}&page={page}" +
+                    $"&quality={quality}&minimum_rating={minimumRating}&query_term={queryTerm}" +
+                    $"&genre={genre}&sort_by={sortBy}&order_by={orderBy}&with_rt_ratings={withRtRatings}"; //Only the part after the api/v2/ and ALWAYS add ?
                 Debug.WriteLine(Url);
                 string json = await Client.GetStringAsync(Url);
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
