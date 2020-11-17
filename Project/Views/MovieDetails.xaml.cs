@@ -22,12 +22,12 @@ namespace Project.Views
         }
         private async Task LoadMovieDetails()
         {
-            MovieNamelbl.Text = selectedMovie.title;
-            Yearlbl.Text = Convert.ToString(selectedMovie.year);
-            Genreslbl.Text = selectedMovie.genreString;
-            MoviePicture.Source = selectedMovie.large_cover_image;
-            Runtimelbl.Text = selectedMovie.runtimeString;
-            Ratinglbl.Text = Convert.ToString(selectedMovie.rating);
+            movieName.Text = selectedMovie.title;
+            year.Text = Convert.ToString(selectedMovie.year);
+            genres.Text = selectedMovie.genreString;
+            moviePicture.Source = selectedMovie.largeCoverImage;
+            Runtime.Text = selectedMovie.runtimeString;
+            rating.Text = Convert.ToString(selectedMovie.rating);
         }
     }
 }

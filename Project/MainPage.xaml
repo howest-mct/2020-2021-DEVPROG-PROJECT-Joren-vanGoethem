@@ -17,7 +17,7 @@
 
             <Button x:Name="MovieFilterBtn" Text="Settings" WidthRequest="500" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>
 
-            <ListView x:Name="lvwMovies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717" ItemSelected="lvwMovies_ItemSelected">
+            <ListView x:Name="movies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717" ItemSelected="lvwMovies_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -27,7 +27,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image x:Name="CoverImage" Grid.Column="0" Aspect="AspectFit" Source="{Binding medium_cover_image}" Margin="1,1,0,1"/>
+                                <Image x:Name="CoverImage" Grid.Column="0" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
 
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>

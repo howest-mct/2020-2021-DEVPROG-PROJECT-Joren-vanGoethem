@@ -24,7 +24,7 @@ namespace Project
         public string sortBy { get; set; }
         public string orderBy { get; set; }
 
-        public List<Movie> MovieList { get; set; }
+        public List<Movie> movieList { get; set; }
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
@@ -38,23 +38,25 @@ namespace Project
             //orderBy = orderBy;
             InitializeComponent();
             LoadMovies(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
-            test();
+            //test();
         }
 
         private async Task test()
         {
-            List<Movie> Movies = await MovieRepository.GetMoviesAsync();
-            foreach (Movie M in Movies)
-            {
-                Debug.Write(M.title);
-                Debug.Write(M.torrents[0].quality);
-            }
+            //List<Movie> movies = await MovieRepository.GetMoviesAsync();
+            //foreach (Movie M in movies)
+            //{
+            //    Debug.Write(M.title);
+            //    Debug.Write(M.torrents[0].quality);
+            //}
         }
 
         private async Task LoadMovies(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            MovieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
-            lvwMovies.ItemsSource = MovieList;
+            Debug.WriteLine("test1");
+            movieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
+            Debug.WriteLine("test2");
+            movies.ItemsSource = movieList;
         }
 
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
@@ -64,11 +66,11 @@ namespace Project
     
         private void lvwMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (lvwMovies.SelectedItem != null) //Debug.WriteLine("No items selected");
+            if (movies.SelectedItem != null) //Debug.WriteLine("No items selected");
             {
-                Movie selected = (Movie)lvwMovies.SelectedItem;
+                Movie selected = (Movie)movies.SelectedItem;
                 Navigation.PushAsync(new MovieDetails(selected));
-                lvwMovies.SelectedItem = null;
+                movies.SelectedItem = null;
             }
         }
 
@@ -81,7 +83,7 @@ namespace Project
                 page -= 1;
                 LoadMovies(page: page);
                 Pagelbl.Text = $"Page {page}";
-                lvwMovies.ScrollTo(MovieList[0], ScrollToPosition.Start, true);
+                movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
             }
             if (page == 1)
             {
@@ -98,7 +100,7 @@ namespace Project
             {
                 PrevPagebtn.BackgroundColor = Color.FromHex("#5da93c");
                 PrevPagebtn.TextColor = Color.FromHex("#FFFFFF");
-                lvwMovies.ScrollTo(MovieList[0], ScrollToPosition.Start, true);
+                movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
             }
             Pagelbl.Text = $"Page {page}";
         }

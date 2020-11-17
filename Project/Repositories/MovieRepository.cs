@@ -21,32 +21,30 @@ namespace Project.Repositories
         string quality = "all", int minimumRating = 0, string queryTerm = "0", string genre = "all", 
         string sortBy = "rating", string orderBy = "desc", bool withRtRatings = false)
         {
-            List<Movie> Movies = new List<Movie>();
+            List<Movie> movies = new List<Movie>();
 
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
             {
-                string Url = $"{_APILINK}list_movies.json?limit={limit}&page={page}" +
+                string url = $"{_APILINK}list_movies.json?limit={limit}&page={page}" +
                     $"&quality={quality}&minimum_rating={minimumRating}&query_term={queryTerm}" +
                     $"&genre={genre}&sort_by={sortBy}&order_by={orderBy}&with_rt_ratings={withRtRatings}"; //Only the part after the api/v2/ and ALWAYS add ?
-                Debug.WriteLine(Url);
-                string json = await Client.GetStringAsync(Url);
+                Debug.WriteLine(url);
+                
+                string json = await Client.GetStringAsync(url);
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movies");
-                Movies = allMovies.ToObject<List<Movie>>();
+                movies = allMovies.ToObject<List<Movie>>();
 
-                //if (json == null) return null;
-                //Movies = JsonConvert.DeserializeObject<List<Movie>>(json);
-                //return Movies;
-                return Movies;
+                return movies;
             }
         }
 
         private async static Task<HttpClient> GetClientAsync()
         {
-            HttpClient Client = new HttpClient();
-            Client.DefaultRequestHeaders.Add("Accept", "application/json");
-            return Client;
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            return client;
         }
 
 

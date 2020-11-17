@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,32 +7,57 @@ namespace Project.Models
 {
     public class Movie
     {
+        
         public int id { get; set; }
         public string url { get; set; }
-        public string imdb_code { get; set; }
+
+        [JsonProperty("imdb_code")]
+        public string imdbCode { get; set; }
         public string title { get; set; }
-        public string title_english { get; set; }
-        public string title_long { get; set; }
+
+        [JsonProperty("title_english")]
+        public string titleEnglish { get; set; }
+
+        [JsonProperty("title_long")]
+        public string titleLong { get; set; }
         public string slug { get; set; }
         public int year { get; set; }
         public float rating { get; set; }
         public int runtime { get; set; }
         public string[] genres { get; set; }
         public string summary { get; set; }
-        public string description_full { get; set; }
+
+        [JsonProperty("description_full")]
+        public string descriptionFull { get; set; }
         public string synopsis { get; set; }
-        public string yt_trailer_code { get; set; }
+
+        [JsonProperty("yt_trailer_code")]
+        public string ytTrailerCode { get; set; }
         public string language { get; set; }
-        public string mpa_rating { get; set; }
-        public string background_image { get; set; }
-        public string background_image_original { get; set; }
-        public string small_cover_image { get; set; }
-        public string medium_cover_image { get; set; }
-        public string large_cover_image { get; set; }
+
+        [JsonProperty("mpa_rating")]
+        public string mpaRating { get; set; }
+
+        [JsonProperty("background_image")]
+        public string backgroundImage { get; set; }
+
+        [JsonProperty("background_image_original")]
+        public string backgroundImageOriginal { get; set; }
+
+        [JsonProperty("small_cover_image")]
+        public string smallCoverImage { get; set; }
+
+        [JsonProperty("medium_cover_image")]
+        public string mediumCoverImage { get; set; }
+
+        [JsonProperty("large_cover_image")]
+        public string largeCoverImage { get; set; }
         public string state { get; set; }
         public Torrent[] torrents { get; set; }
-        public string date_uploaded { get; set; }
-        public int date_uploaded_unix { get; set; }
+        [JsonProperty("date_uploaded")]
+        public string dateUploaded { get; set; }
+        [JsonProperty("date_uploaded_unix")]
+        public int dateUploadedUnix { get; set; }
 
         public string resolutions
         {
@@ -93,9 +119,14 @@ namespace Project.Models
         public int seeds { get; set; }
         public int peers { get; set; }
         public string size { get; set; }
-        public long size_bytes { get; set; }
-        public string date_uploaded { get; set; }
-        public int date_uploaded_unix { get; set; }
+        [JsonProperty("size_bytes")]
+        public long sizeBytes { get; set; }
+
+        [JsonProperty("date_uploaded")]
+        public string dateUploaded { get; set; }
+
+        [JsonProperty("date_uploaded_unix")]
+        public int dateUploadedUnix { get; set; }
     }
 
 }
