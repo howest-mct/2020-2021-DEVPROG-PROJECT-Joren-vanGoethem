@@ -13,9 +13,7 @@
                 <RowDefinition Height="43"/>
             </Grid.RowDefinitions>
 
-            <!--filter here-->
-
-            <Button x:Name="movieFilter" Text="Settings" WidthRequest="500" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>
+            <Button x:Name="movieFilter" Text="Settings" WidthRequest="1000" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>
 
             <ListView x:Name="movies" Grid.Row="1" RowHeight="160" SeparatorColor="#171717" ItemSelected="lvwMovies_ItemSelected">
                 <ListView.ItemTemplate>
@@ -54,7 +52,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
             <Grid Grid.Row="2" Margin="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -66,12 +63,8 @@
                 <Label x:Name="page" Text="Page 1" Grid.Column="1" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
                 <Button x:Name="nextPage" Text="Next Page" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="NextPagebtn_Clicked"/>
 
-             </Grid>
-
-
-
-
             </Grid>
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>

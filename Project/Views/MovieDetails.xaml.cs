@@ -31,5 +31,13 @@ namespace Project.Views
             rating.Text = Convert.ToString(selectedMovie.rating);
             description.Text = selectedMovie.descriptionFull;
         }
+
+        private void trailer_Clicked(object sender, EventArgs e)
+        {
+            if (selectedMovie.ytTrailerCode != null) //Debug.WriteLine("No items selected");
+            {
+                Navigation.PushAsync(new Trailer(selectedMovie.ytTrailerCode));
+            }
+        }
     }
 }

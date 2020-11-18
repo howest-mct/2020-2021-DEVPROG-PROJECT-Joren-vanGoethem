@@ -104,3 +104,26 @@ namespace Project
         }
     }
 }
+
+
+
+
+// automatic subtitle download using imdb code
+// automatic image download using movie name + /large-screenshot1.jpg 1-3
+// 
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+

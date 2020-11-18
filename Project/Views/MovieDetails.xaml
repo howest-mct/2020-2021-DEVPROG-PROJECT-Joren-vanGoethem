@@ -5,6 +5,7 @@
              BackgroundColor="#1d1d1d"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
+        <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -32,16 +33,14 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
+                        <!--<RowDefinition Height="auto"/>-->
                     </Grid.RowDefinitions>
 
                     <Label x:Name="runtime" Text="Runtime" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
 
                     <Label x:Name="resolutions" Text="available resolutions" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
 
-                    <Label x:Name="Stuff2" Text="Stuff2" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
-
-                    <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End" ColumnSpacing="5">
+                    <Grid Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" ColumnSpacing="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
@@ -53,11 +52,21 @@
             </Grid>
             
             <Label Text="Description" Grid.Row="4" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
-            <ScrollView Grid.Row="5" HeightRequest="150">
+            <ScrollView Grid.Row="5" HeightRequest="151">
+                <!--exactly 151 to perfectly fit up to 7 lines--> 
                 <Label x:Name="description" Text="full description" FontSize="18" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start"/>
             </ScrollView>
-            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                    <Button x:Name="trailer" Text="Youtube Trailer" Grid.Column="0" TextColor="White" BackgroundColor="#ff4e45" VerticalOptions="Center" HorizontalOptions="End" Clicked="trailer_Clicked"/>
+
+
+            </Grid>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
