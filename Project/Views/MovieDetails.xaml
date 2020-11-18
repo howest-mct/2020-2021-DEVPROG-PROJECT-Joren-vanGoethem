@@ -6,67 +6,70 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
 
 
-            <Label x:Name="movieName" Text="Movie Name" Grid.Row="0" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
-            <Label x:Name="year" Text="Year" Grid.Row="1" FontSize="18" TextColor="White"/>
-            <Label x:Name="genres" Text="Genres" Grid.Row="2" FontSize="18" TextColor="White"/>
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="205"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <Label x:Name="movieName" Text="Movie Name" Grid.Row="0" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                <Label x:Name="year" Text="Year" Grid.Row="1" FontSize="18" TextColor="White"/>
+                <Label x:Name="genres" Text="Genres" Grid.Row="2" FontSize="18" TextColor="White"/>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="205"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Image x:Name="moviePicture" Source="" Aspect="AspectFill" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Margin="2" />
+                    <Image x:Name="moviePicture" Source="" Aspect="AspectFill" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Margin="2" />
 
-                <Grid Grid.Column="1" HorizontalOptions="StartAndExpand" Margin="3" RowSpacing="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <!--<RowDefinition Height="auto"/>-->
-                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="1" HorizontalOptions="StartAndExpand" Margin="3" RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
-                    <Label x:Name="runtime" Text="Runtime" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
+                        <Label x:Name="runtime" Text="Runtime" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
 
-                    <Label x:Name="resolutions" Text="available resolutions" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
+                        <Label x:Name="resolutions" Text="available resolutions" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
 
-                    <Grid Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" ColumnSpacing="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Image x:Name="imdbLogo" HeightRequest="20" Aspect="AspectFit" Grid.Column="0" Source="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" VerticalOptions="Start" HorizontalOptions="Start"/>
-                        <Label x:Name="rating" Grid.Column="1" Margin="5,0,0,0" Text="Rating" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
+                        <Grid Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="End" ColumnSpacing="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imdbLogo" HeightRequest="20" Aspect="AspectFit" Grid.Column="0" Source="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" VerticalOptions="Start" HorizontalOptions="Start"/>
+                            <Label x:Name="rating" Grid.Column="1" Margin="5,0,0,0" Text="Rating" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="19"/>
+                        </Grid>
+
+                        <Grid Grid.Row="3" RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Button x:Name="trailer" Text="Youtube Trailer" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="Start" Clicked="trailer_Clicked"/>
+                            <Button x:Name="pictures" Text="Pictures" Grid.Row="1" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="Start" Clicked="pictures_Clicked"/>
+
+                        </Grid>
                     </Grid>
                 </Grid>
+
+                <Label Text="Description" Grid.Row="4" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                <ScrollView Grid.Row="5" HeightRequest="151">
+                    <!--exactly 151 to perfectly fit up to 7 lines-->
+                    <Label x:Name="description" Text="full description" FontSize="18" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start"/>
+                </ScrollView>
+                
             </Grid>
-            
-            <Label Text="Description" Grid.Row="4" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
-            <ScrollView Grid.Row="5" HeightRequest="151">
-                <!--exactly 151 to perfectly fit up to 7 lines--> 
-                <Label x:Name="description" Text="full description" FontSize="18" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start"/>
-            </ScrollView>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                    <Button x:Name="trailer" Text="Youtube Trailer" Grid.Column="0" TextColor="White" BackgroundColor="#ff4e45" VerticalOptions="Center" HorizontalOptions="End" Clicked="trailer_Clicked"/>
-
-
-            </Grid>
-        </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

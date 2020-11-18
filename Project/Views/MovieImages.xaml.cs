@@ -12,7 +12,7 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieImages : ContentPage
     {
-        public MovieImages()
+        public MovieImages(string slug)
         {
             InitializeComponent();
         }

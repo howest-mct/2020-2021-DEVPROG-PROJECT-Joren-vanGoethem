@@ -39,5 +39,13 @@ namespace Project.Views
                 Navigation.PushAsync(new Trailer(selectedMovie.ytTrailerCode));
             }
         }
+
+        private void pictures_Clicked(object sender, EventArgs e)
+        {
+            if (selectedMovie.slug != null) //Debug.WriteLine("No items selected");
+            {
+                Navigation.PushAsync(new MovieImages(selectedMovie.slug));
+            }
+        }
     }
 }
