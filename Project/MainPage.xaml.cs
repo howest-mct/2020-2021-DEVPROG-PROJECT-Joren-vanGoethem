@@ -69,7 +69,7 @@ namespace Project
             if (movies.SelectedItem != null) //Debug.WriteLine("No items selected");
             {
                 Movie selected = (Movie)movies.SelectedItem;
-                Navigation.PushAsync(new MovieDetails(selected));
+                Navigation.PushAsync(new MovieDetailsPage(selected));
                 movies.SelectedItem = null;
             }
         }

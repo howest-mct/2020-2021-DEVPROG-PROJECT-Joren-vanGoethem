@@ -11,10 +11,10 @@ using Xamarin.Forms.Xaml;
 namespace Project.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MovieDetails : ContentPage
+    public partial class MovieDetailsPage : ContentPage
     {
         public Movie selectedMovie { get; set; }
-        public MovieDetails(Movie movie)
+        public MovieDetailsPage(Movie movie)
         {
             selectedMovie = movie;
             InitializeComponent();

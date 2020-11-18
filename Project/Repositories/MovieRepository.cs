@@ -40,6 +40,27 @@ namespace Project.Repositories
             }
         }
 
+        public async static Task<MovieDetails> GetMovieDetailsAsync(int movieId, bool withImages = true, bool withCast = true)
+        {
+            MovieDetails movieDetails = new MovieDetails();
+
+            //httpClient nodig --> API call uitvoeren
+            using (HttpClient Client = await GetClientAsync())
+            {
+                string url = $"{_APILINK}movie_details.json?movie_id={movieId}&with_images={withImages}&with_cast={withCast}"; //Only the part after the api/v2/ and ALWAYS add ?
+                Debug.WriteLine(url);
+
+                string json = await Client.GetStringAsync(url);
+                JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
+                JToken allMovies = jsonObject.SelectToken("data.movie");
+                movieDetails = allMovies.ToObject<MovieDetails>();
+
+                return movieDetails;
+            }
+        }
+
+
+
         private async static Task<HttpClient> GetClientAsync()
         {
             HttpClient client = new HttpClient();
