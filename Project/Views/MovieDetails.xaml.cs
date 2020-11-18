@@ -26,8 +26,10 @@ namespace Project.Views
             year.Text = Convert.ToString(selectedMovie.year);
             genres.Text = selectedMovie.genreString;
             moviePicture.Source = selectedMovie.largeCoverImage;
-            Runtime.Text = selectedMovie.runtimeString;
+            runtime.Text = selectedMovie.runtimeString;
+            resolutions.Text = selectedMovie.resolutions;
             rating.Text = Convert.ToString(selectedMovie.rating);
+            description.Text = selectedMovie.descriptionFull;
         }
     }
 }

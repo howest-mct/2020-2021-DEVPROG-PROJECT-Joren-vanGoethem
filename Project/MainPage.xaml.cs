@@ -16,7 +16,7 @@ namespace Project
     public partial class MainPage : ContentPage
     {
         public int limit { get; set; }
-        public int page { get; set; }
+        public int pageCounter { get; set; }
         public string quality { get; set; }
         public int minimumRating { get; set; }
         public string query { get; set; }
@@ -29,7 +29,7 @@ namespace Project
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
             //limit = limit;
-            //page = page;
+            pageCounter = page;
             //quality = quality;
             //minimumRating = minimumRating;
             //query = query;
@@ -37,7 +37,7 @@ namespace Project
             //sortBy = sortBy;
             //orderBy = orderBy;
             InitializeComponent();
-            LoadMovies(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
+            LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
             //test();
         }
 
@@ -61,7 +61,7 @@ namespace Project
 
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MovieSettings(limit, page, quality, minimumRating, query, genre, sortBy, orderBy));
+            Navigation.PushAsync(new MovieSettings(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy));
         }
     
         private void lvwMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -74,35 +74,33 @@ namespace Project
             }
         }
 
-
-
         private void PrevPagebtn_Clicked(object sender, EventArgs e)
         {
-            if (page > 1)
+            if (pageCounter > 1)
             {
-                page -= 1;
-                LoadMovies(page: page);
-                Pagelbl.Text = $"Page {page}";
+                pageCounter -= 1;
+                LoadMovies(page: pageCounter);
+                page.Text = $"Page {pageCounter}";
                 movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
             }
-            if (page == 1)
+            if (pageCounter == 1)
             {
-                PrevPagebtn.BackgroundColor = Color.FromHex("#919191");
-                PrevPagebtn.TextColor = Color.FromHex("#171717");
+                prevPage.BackgroundColor = Color.FromHex("#919191");
+                prevPage.TextColor = Color.FromHex("#171717");
             }
         }
 
         private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
-            page += 1;
-            LoadMovies(page: page);
-            if (page > 1)
+            pageCounter += 1;
+            LoadMovies(page: pageCounter);
+            if (pageCounter > 1)
             {
-                PrevPagebtn.BackgroundColor = Color.FromHex("#5da93c");
-                PrevPagebtn.TextColor = Color.FromHex("#FFFFFF");
+                prevPage.BackgroundColor = Color.FromHex("#5da93c");
+                prevPage.TextColor = Color.FromHex("#FFFFFF");
                 movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
             }
-            Pagelbl.Text = $"Page {page}";
+            page.Text = $"Page {pageCounter}";
         }
     }
 }
