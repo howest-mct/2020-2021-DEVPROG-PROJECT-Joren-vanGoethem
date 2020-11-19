@@ -7,34 +7,106 @@
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!--filter here-->
-            <Label Text="Movies Per Page: "/>
-            <Label Text="Qualities To List: "/>
-            <Label Text="Minimum IMDB Rating: "/>
-            <Label Text="Genres: "/>
-            <Label Text="Sort By: "/>
-            <Label Text="Order By: "/>
+            <Entry x:Name="movieQuery" Grid.Row="0" FontSize="19" Placeholder="Search Query" TextColor="White" PlaceholderColor="#919191"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="175"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Movies Per Page:" Grid.Column="0" FontSize="19" TextColor="White" VerticalOptions="Center"/>
+                <Entry x:Name="movieCount" Grid.Row="0" FontSize="19" Placeholder="up to 999" Text="10" MaxLength="3" Grid.Column="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
+            </Grid>
+
+            <!-- Popup with settings -->
+            <Label Text="Qualities To List:" Grid.Row="2" FontSize="19" TextColor="White" VerticalOptions="Center"/>
             
+            <Grid Grid.Row="3" VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" x:Name="res720" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="0" Margin="40,0,0,0" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+                <CheckBox Grid.Column="1" x:Name="res1080" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="1" Margin="40,0,0,0" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+            </Grid>
             
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" x:Name="res2160" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="0" Margin="40,0,0,0" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+                <CheckBox Grid.Column="1" x:Name="res3D" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="1" Margin="40,0,0,0" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Minimum IMDB Rating:" Grid.Column="0" FontSize="19" TextColor="White" VerticalOptions="Center"/>
+                <Entry x:Name="imdbRating" Grid.Column="1" FontSize="19" Placeholder="up to 5" Text="5" MaxLength="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
+            </Grid>
+
+            <!--<Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Genres:" Grid.Column="0" FontSize="19" TextColor="White"/>
+                <ScrollView Grid.Column="1">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+
+
+
+            
+            <Label Text="Sort By:" Grid.Row="7" FontSize="19" TextColor="White"/>
+            <Label Text="Order By:" Grid.Row="8" FontSize="19" TextColor="White"/>-->
 
 
 
 
-            <Grid Grid.Row="2" Margin="3">
+
+
+            <Grid Grid.Row="10" Margin="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Cancelbtn" Text="Cancel" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="Cancelbtn_Clicked"/>
+                <Button x:Name="Cancelbtn" Text="Cancel" FontSize="18" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="Cancelbtn_Clicked"/>
 
-                <Button x:Name="Savebtn" Text="Save" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="Savebtn_Clicked"/>
+                <Button x:Name="Savebtn" Text="Save" FontSize="18" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="Savebtn_Clicked"/>
 
             </Grid>
 

@@ -61,7 +61,7 @@ namespace Project
 
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MovieSettings(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy));
+            Navigation.PushAsync(new MovieSettings(limit, quality, minimumRating, query, genre, sortBy, orderBy));
         }
     
         private void lvwMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
