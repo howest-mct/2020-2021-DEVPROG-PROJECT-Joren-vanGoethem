@@ -24,7 +24,7 @@ namespace Project
         public string sortBy { get; set; }
         public string orderBy { get; set; }
 
-        public List<Movie> movieList { get; set; }
+        public List<MovieDetails> movieList { get; set; }
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
@@ -68,7 +68,7 @@ namespace Project
         {
             if (movies.SelectedItem != null) //Debug.WriteLine("No items selected");
             {
-                Movie selected = (Movie)movies.SelectedItem;
+                MovieDetails selected = (MovieDetails)movies.SelectedItem;
                 Navigation.PushAsync(new MovieDetailsPage(selected));
                 movies.SelectedItem = null;
             }

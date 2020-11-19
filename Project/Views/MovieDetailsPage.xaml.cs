@@ -13,10 +13,10 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieDetailsPage : ContentPage
     {
-        public Movie selectedMovie { get; set; }
-        public MovieDetailsPage(Movie movie)
+        public MovieDetails selectedMovie { get; set; }
+        public MovieDetailsPage(MovieDetails movieDetails)
         {
-            selectedMovie = movie;
+            selectedMovie = movieDetails;
             InitializeComponent();
             LoadMovieDetails();
         }

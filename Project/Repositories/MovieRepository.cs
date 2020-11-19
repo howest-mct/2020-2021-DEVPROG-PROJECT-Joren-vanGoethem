@@ -17,11 +17,12 @@ namespace Project.Repositories
        
 
         // List<Movie>
-        public async static Task<List<Movie>> GetMoviesAsync(int limit = 10, int page = 1, 
+        public async static Task<List<MovieDetails>> GetMoviesAsync(int limit = 10, int page = 1, 
         string quality = "all", int minimumRating = 0, string queryTerm = "0", string genre = "all", 
         string sortBy = "rating", string orderBy = "desc", bool withRtRatings = false)
         {
             List<Movie> movies = new List<Movie>();
+            List<MovieDetails> moviesDetails = new List<MovieDetails>();
 
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
@@ -35,8 +36,11 @@ namespace Project.Repositories
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movies");
                 movies = allMovies.ToObject<List<Movie>>();
-
-                return movies;
+                foreach(Movie movie in movies)
+                {
+                    moviesDetails.Add(await GetMovieDetailsAsync(movie.id));
+                }
+                return moviesDetails;
             }
         }
 
