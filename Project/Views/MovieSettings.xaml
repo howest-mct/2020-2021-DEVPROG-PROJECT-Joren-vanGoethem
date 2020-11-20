@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project.Views.MovieSettings"
              BackgroundColor="#1d1d1d"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             >
     <ContentPage.Content>
-        <Grid RowSpacing="0">
+        <Grid RowSpacing="-20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -30,28 +31,32 @@
             </Grid>
 
             <!-- Popup with settings -->
-            <Label Text="Qualities To List:" Grid.Row="2" FontSize="19" TextColor="White" VerticalOptions="Center"/>
+            <Label Text="minimum quality:" Grid.Row="2" FontSize="19" TextColor="White" VerticalOptions="Center"/>
             
             <Grid Grid.Row="3" VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <CheckBox Grid.Column="0" x:Name="res720" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="0" Margin="40,0,0,0" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
-                <CheckBox Grid.Column="1" x:Name="res1080" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="1" Margin="40,0,0,0" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+                <!--<CheckBox Grid.Column="0" x:Name="res720" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>-->
+                <!--<Label Grid.Column="0" Margin="40,0,0,0" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
+                <RadioButton Grid.Column="0" x:Name="res720" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="True" TextColor="White" GroupName="Resolutions"/>
+                <RadioButton Grid.Column="1" x:Name="res1080" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                <!--<CheckBox Grid.Column="1" x:Name="res1080" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="1" Margin="40,0,0,0" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
             </Grid>
-            
-            <Grid Grid.Row="4">
+
+            <Grid Grid.Row="4" VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <CheckBox Grid.Column="0" x:Name="res2160" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="0" Margin="40,0,0,0" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
-                <CheckBox Grid.Column="1" x:Name="res3D" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="1" Margin="40,0,0,0" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>
+                <!--<CheckBox Grid.Column="0" x:Name="res2160" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="0" Margin="40,0,0,0" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
+                <RadioButton Grid.Column="0" x:Name="res2160" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                <RadioButton Grid.Column="1" x:Name="res3D" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                <!--<CheckBox Grid.Column="1" x:Name="res3D" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
+                <Label Grid.Column="1" Margin="40,0,0,0" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
             </Grid>
 
             <Grid Grid.Row="5">
@@ -60,7 +65,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Minimum IMDB Rating:" Grid.Column="0" FontSize="19" TextColor="White" VerticalOptions="Center"/>
-                <Entry x:Name="imdbRating" Grid.Column="1" FontSize="19" Placeholder="up to 5" Text="5" MaxLength="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
+                <Entry x:Name="imdbRating" Grid.Column="1" FontSize="19" Placeholder="up to 10" Text="5" MaxLength="2" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
             </Grid>
 
             <!--<Grid Grid.Row="6">
@@ -90,11 +95,8 @@
 
             
             <Label Text="Sort By:" Grid.Row="7" FontSize="19" TextColor="White"/>
+            
             <Label Text="Order By:" Grid.Row="8" FontSize="19" TextColor="White"/>-->
-
-
-
-
 
 
             <Grid Grid.Row="10" Margin="3">

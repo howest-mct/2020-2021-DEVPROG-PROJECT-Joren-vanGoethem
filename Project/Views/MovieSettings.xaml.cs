@@ -40,7 +40,17 @@ namespace Project.Views
 
         private async Task LoadSettings(int limit, string quality, int minimum_rating, string query, string genre, string sortBy, string orderBy)
         {
-            Debug.WriteLine("test");
+            movieCount.Text = Convert.ToString(limit);
+            List <RadioButton> radioButtonList = new List<RadioButton>() { res720, res1080, res2160, res3D };
+
+            foreach (RadioButton R in radioButtonList)
+            {
+                if (R.Text == quality)
+                    R.IsChecked = true;
+            }
+
+            imdbRating.Text = Convert.ToString(minimumRating);
+            
         }
 
         private void Cancelbtn_Clicked(object sender, EventArgs e)
@@ -49,6 +59,19 @@ namespace Project.Views
         }
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
+            limit = Convert.ToUInt16(movieCount.Text);
+            List<RadioButton> radioButtonList = new List<RadioButton>(){res720, res1080, res2160, res3D };
+
+            foreach(RadioButton R in radioButtonList)
+            {
+                if (R.IsChecked == true)
+                    quality = R.Text;
+            }
+
+            minimumRating = Convert.ToUInt16(imdbRating.Text);
+            query = movieQuery.Text;
+
+
             Navigation.PushAsync(new MainPage(limit: limit, quality: quality, minimumRating: minimumRating, query: query, genre: genre, sortBy: sortBy, orderBy: orderBy)) ;
         }
     }
