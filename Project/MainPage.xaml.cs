@@ -10,6 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Xamarin.Essentials;
+using FFImageLoading;
+using FFImageLoading.Forms;
+
+
 
 namespace Project
 {
@@ -28,14 +33,16 @@ namespace Project
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            //limit = limit;
+           
+
+
             pageCounter = page;
-            //quality = quality;
-            //minimumRating = minimumRating;
-            //query = query;
-            //genre = genre;
-            //sortBy = sortBy;
-            //orderBy = orderBy;
+            limit = Preferences.Get("Limit", 10);
+            quality = Preferences.Get("Quality", "all");
+            minimumRating = Preferences.Get("MinimumRating", 0);
+            genre = Preferences.Get("Genre", "all");
+            sortBy = Preferences.Get("SortBy", "rating");
+            orderBy = Preferences.Get("OrderBy", "desc");
             InitializeComponent();
             LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
             //test();
@@ -53,15 +60,14 @@ namespace Project
 
         private async Task LoadMovies(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            Debug.WriteLine("test1");
             movieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
-            Debug.WriteLine("test2");
             movies.ItemsSource = movieList;
+            movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
         }
 
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MovieSettings(limit, quality, minimumRating, query, genre, sortBy, orderBy));
+            Navigation.PushAsync(new MovieSettings());
         }
     
         private void lvwMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -79,9 +85,9 @@ namespace Project
             if (pageCounter > 1)
             {
                 pageCounter -= 1;
-                LoadMovies(page: pageCounter);
+                LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
                 page.Text = $"Page {pageCounter}";
-                movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
+                //movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
             }
             if (pageCounter == 1)
             {
@@ -93,14 +99,22 @@ namespace Project
         private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
             pageCounter += 1;
-            LoadMovies(page: pageCounter);
+            LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
             if (pageCounter > 1)
             {
                 prevPage.BackgroundColor = Color.FromHex("#5da93c");
                 prevPage.TextColor = Color.FromHex("#FFFFFF");
-                movies.ScrollTo(movieList[0], ScrollToPosition.Start, true);
+                //movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
             }
             page.Text = $"Page {pageCounter}";
+        }
+
+        private void coverImage_Error(object sender, CachedImageEvents.ErrorEventArgs e)
+        {
+            Debug.WriteLine("ERROR FUNCTION");
+            CachedImage imageobject = (CachedImage)sender;
+            Uri imageurl = new Uri("https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg");
+            imageobject.Source = ImageSource.FromUri(imageurl);
         }
     }
 }

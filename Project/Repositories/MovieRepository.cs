@@ -4,6 +4,7 @@ using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,8 +59,37 @@ namespace Project.Repositories
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movie");
                 movieDetails = allMovies.ToObject<MovieDetails>();
-
-                return movieDetails;
+                try
+                {
+                    //Creating the HttpWebRequest
+                    HttpWebRequest request = WebRequest.Create(movieDetails.mediumCoverImage) as HttpWebRequest;
+                    //Setting the Request method HEAD, you can also use GET too.
+                    request.Method = "GET";
+                    //Getting the Web Response.
+                    HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                    //Returns TRUE if the Status code == 200
+                    response.Close();
+                    Debug.WriteLine(response.StatusCode);
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        //Any exception will return false.
+                        Debug.WriteLine("FAIL");
+                        movieDetails.mediumCoverImage = "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+                        return movieDetails;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("NO FAIL");
+                        return movieDetails;
+                    }
+                }
+                catch
+                {
+                    //Any exception will return false.
+                    Debug.WriteLine("FAIL");
+                    movieDetails.mediumCoverImage = "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+                    return movieDetails;
+                }
             }
         }
 

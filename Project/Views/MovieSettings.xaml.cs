@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace Project.Views
 {
@@ -25,23 +26,22 @@ namespace Project.Views
         public string sortBy { get; set; }
         public string orderBy { get; set; }
 
-        public MovieSettings(int limit = 10, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
+        public MovieSettings()
         {
-            //limit = limit;
-            //quality = quality;
-            //minimumRating = minimumRating;
-            //query = query;
-            //genre = genre;
-            //sortBy = sortBy;
-            //orderBy = orderBy;
+            limit = Preferences.Get("Limit", 10);
+            quality = Preferences.Get("Quality", "all");
+            minimumRating = Preferences.Get("MinimumRating", 0);
+            genre = Preferences.Get("Genre", "all");
+            sortBy = Preferences.Get("SortBy", "rating");
+            orderBy = Preferences.Get("OrderBy", "desc");
             InitializeComponent();
-            LoadSettings(limit, quality, minimumRating, query, genre, sortBy, orderBy);
+            LoadSettings();
         }
 
-        private async Task LoadSettings(int limit, string quality, int minimum_rating, string query, string genre, string sortBy, string orderBy)
+        private async Task LoadSettings()
         {
             movieCount.Text = Convert.ToString(limit);
-            List <RadioButton> radioButtonList = new List<RadioButton>() { res720, res1080, res2160, res3D };
+            List <RadioButton> radioButtonList = new List<RadioButton>() {allQualities, res720, res1080, res2160, res3D };
 
             foreach (RadioButton R in radioButtonList)
             {
@@ -50,7 +50,6 @@ namespace Project.Views
             }
 
             imdbRating.Text = Convert.ToString(minimumRating);
-            
         }
 
         private void Cancelbtn_Clicked(object sender, EventArgs e)
@@ -60,7 +59,7 @@ namespace Project.Views
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
             limit = Convert.ToUInt16(movieCount.Text);
-            List<RadioButton> radioButtonList = new List<RadioButton>(){res720, res1080, res2160, res3D };
+            List<RadioButton> radioButtonList = new List<RadioButton>(){allQualities, res720, res1080, res2160, res3D };
 
             foreach(RadioButton R in radioButtonList)
             {
@@ -70,6 +69,13 @@ namespace Project.Views
 
             minimumRating = Convert.ToUInt16(imdbRating.Text);
             query = movieQuery.Text;
+
+            Preferences.Set("Limit", limit);
+            Preferences.Set("Quality", quality);
+            Preferences.Set("MinimumRating", minimumRating);
+            Preferences.Set("Genre", genre);
+            Preferences.Set("SortBy", sortBy);
+            Preferences.Set("OrderBy", orderBy);
 
 
             Navigation.PushAsync(new MainPage(limit: limit, quality: quality, minimumRating: minimumRating, query: query, genre: genre, sortBy: sortBy, orderBy: orderBy)) ;

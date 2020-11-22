@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net;
 using System.Text;
 
 namespace Project.Models
@@ -55,9 +57,79 @@ namespace Project.Models
 
         [JsonProperty("medium_cover_image")]
         public string mediumCoverImage { get; set; }
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            Debug.WriteLine("START");
+        //            //Creating the HttpWebRequest
+        //            HttpWebRequest request = WebRequest.Create(mediumCoverImage) as HttpWebRequest;
+        //            //Setting the Request method HEAD, you can also use GET too.
+        //            request.Method = "GET";
+        //            //Getting the Web Response.
+        //            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+        //            //Returns TRUE if the Status code == 200
+        //            //response.Close();
+        //            Debug.WriteLine(response.StatusCode);
+        //            if(response.StatusCode == HttpStatusCode.NotFound)
+        //            {
+        //                //Any exception will return false.
+        //                Debug.WriteLine("FAIL");
+        //                return "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+        //            }
+        //            else 
+        //            {
+        //                return mediumCoverImage;
+        //            }
+
+        //        }
+        //        catch
+        //        {
+        //            //Any exception will return false.
+        //            Debug.WriteLine("FAIL");
+        //            return "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+        //        }
+        //    }
+        //    set
+        //    {
+        //        mediumCoverImage = value;
+        //    }
+        //}
 
         [JsonProperty("large_cover_image")]
         public string largeCoverImage { get; set; }
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            ////Creating the HttpWebRequest
+        //            //HttpWebRequest request = WebRequest.Create(largeCoverImage) as HttpWebRequest;
+        //            ////Setting the Request method HEAD, you can also use GET too.
+        //            //request.Method = "HEAD";
+        //            ////Getting the Web Response.
+        //            //HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+        //            ////Returns TRUE if the Status code == 200
+        //            //response.Close();
+        //            ////response.StatusCode == HttpStatusCode.OK;
+        //            //Debug.WriteLine("response StatusCode");
+        //            //Debug.WriteLine(response.StatusCode);
+        //            //Debug.WriteLine("Http StatusCode");
+        //            //Debug.WriteLine(HttpStatusCode.OK);
+        //            return largeCoverImage;
+        //        }
+        //        catch
+        //        {
+        //            //Any exception will returns false.
+        //            return "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+        //        }
+        //    }
+        //    set
+        //    {
+        //        largeCoverImage = value;
+        //    }
+        //}
 
         [JsonProperty("medium_screenshot_image1")]
         public string mediumScreenshotImage1 { get; set; }

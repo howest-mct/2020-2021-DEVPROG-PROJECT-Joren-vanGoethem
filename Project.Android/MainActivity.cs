@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using FFImageLoading;
+using FFImageLoading.Forms;
+using FFImageLoading.Forms.Platform;
 
 namespace Project.Droid
 {
@@ -16,13 +19,18 @@ namespace Project.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Xamarin.Forms.Forms.SetFlags("RadioButton_Experimental");
+            Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
 
+            CachedImageRenderer.Init(enableFastRenderer: true);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CachedImageRenderer.InitImageViewHandler();
+            
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

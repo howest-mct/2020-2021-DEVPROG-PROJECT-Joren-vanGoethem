@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="Project.MainPage"
              BackgroundColor="#1d1d1d"
              NavigationPage.HasNavigationBar="False">
@@ -25,7 +25,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image x:Name="coverImage" Grid.Column="0" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
+                                <forms:CachedImage x:Name="coverImage" Grid.Column="0" Error="coverImage_Error" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
 
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label x:Name="title" Text="{Binding title}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
+                                    <Label x:Name="title" Text="{Binding titleLong}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
                                     <Label x:Name="genres" Text="{Binding genreString}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     <Label x:Name="weight" Text="{Binding resolutions}" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End">

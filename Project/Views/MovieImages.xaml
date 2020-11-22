@@ -5,10 +5,11 @@
              BackgroundColor="#1d1d1d"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
+        <!--<StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        </StackLayout>-->
+        <CarouselView x:Name="carouselimageviewer" IsSwipeEnabled="True"/>
     </ContentPage.Content>
 </ContentPage>

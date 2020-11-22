@@ -27,12 +27,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Movies Per Page:" Grid.Column="0" FontSize="19" TextColor="White" VerticalOptions="Center"/>
-                <Entry x:Name="movieCount" Grid.Row="0" FontSize="19" Placeholder="up to 999" Text="10" MaxLength="3" Grid.Column="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
+                <Entry x:Name="movieCount" Grid.Row="0" FontSize="19" Placeholder="up to 50" Text="10" MaxLength="2" Grid.Column="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
             </Grid>
 
             <!-- Popup with settings -->
-            <Label Text="minimum quality:" Grid.Row="2" FontSize="19" TextColor="White" VerticalOptions="Center"/>
-            
+            <Label Text="Quality:" Grid.Row="2" FontSize="19" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <RadioButton x:Name="allQualities" Text="all" FontSize="19" TextColor="White" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" GroupName="Resolutions"/>
+
             <Grid Grid.Row="3" VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
