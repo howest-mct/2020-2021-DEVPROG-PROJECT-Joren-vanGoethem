@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="Project.Views.MovieDetailsPage"
              BackgroundColor="#1d1d1d"
              NavigationPage.HasNavigationBar="False">
@@ -27,7 +27,8 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Image x:Name="moviePicture" Source="" Aspect="AspectFill" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Margin="2" />
+                    <!--<Image x:Name="moviePicture" Source="" Aspect="AspectFill" Grid.Column="0" VerticalOptions="Start" HorizontalOptions="Start" Margin="2" />-->
+                    <forms:CachedImage x:Name="moviePicture" Grid.Column="0" Aspect="AspectFill" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Source="{Binding mediumCoverImage}" VerticalOptions="Start" HorizontalOptions="Start" Margin="2"/>
 
                     <Grid Grid.Column="1" HorizontalOptions="StartAndExpand" Margin="3" RowSpacing="10">
                         <Grid.RowDefinitions>

@@ -34,8 +34,6 @@ namespace Project
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
            
-
-
             pageCounter = page;
             limit = Preferences.Get("Limit", 10);
             quality = Preferences.Get("Quality", "all");
@@ -109,13 +107,13 @@ namespace Project
             page.Text = $"Page {pageCounter}";
         }
 
-        private void coverImage_Error(object sender, CachedImageEvents.ErrorEventArgs e)
-        {
-            Debug.WriteLine("ERROR FUNCTION");
-            CachedImage imageobject = (CachedImage)sender;
-            Uri imageurl = new Uri("https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg");
-            imageobject.Source = ImageSource.FromUri(imageurl);
-        }
+        //private void coverImage_Error(object sender, CachedImageEvents.ErrorEventArgs e)
+        //{
+        //    Debug.WriteLine("ERROR FUNCTION");
+        //    CachedImage imageobject = (CachedImage)sender;
+        //    Uri imageurl = new Uri("https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg");
+        //    imageobject.Source = ImageSource.FromUri(imageurl);
+        //}
     }
 }
 

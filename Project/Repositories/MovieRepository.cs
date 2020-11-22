@@ -74,7 +74,7 @@ namespace Project.Repositories
                     {
                         //Any exception will return false.
                         Debug.WriteLine("FAIL");
-                        movieDetails.mediumCoverImage = "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+                        movieDetails.mediumCoverImage = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
                         return movieDetails;
                     }
                     else
@@ -87,7 +87,7 @@ namespace Project.Repositories
                 {
                     //Any exception will return false.
                     Debug.WriteLine("FAIL");
-                    movieDetails.mediumCoverImage = "https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg";
+                    movieDetails.mediumCoverImage = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
                     return movieDetails;
                 }
             }

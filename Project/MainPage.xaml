@@ -25,7 +25,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <forms:CachedImage x:Name="coverImage" Grid.Column="0" Error="coverImage_Error" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
+                                <forms:CachedImage x:Name="coverImage" Grid.Column="0" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
 
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>
