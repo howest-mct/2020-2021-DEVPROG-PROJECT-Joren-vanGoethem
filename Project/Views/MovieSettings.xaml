@@ -66,7 +66,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Minimum IMDB Rating:" Grid.Column="0" FontSize="19" TextColor="White" VerticalOptions="Center"/>
-                <Entry x:Name="imdbRating" Grid.Column="1" FontSize="19" Placeholder="up to 10" Text="5" MaxLength="2" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
+                <Entry x:Name="imdbRating" Grid.Column="1" FontSize="19" Placeholder="up to 9" Text="5" MaxLength="1" WidthRequest="100" Keyboard="Telephone" TextColor="White" PlaceholderColor="#919191" HorizontalOptions="Start"/>
             </Grid>
 
             <!--<Grid Grid.Row="6">

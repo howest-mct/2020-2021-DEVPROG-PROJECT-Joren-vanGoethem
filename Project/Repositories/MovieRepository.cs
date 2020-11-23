@@ -59,37 +59,7 @@ namespace Project.Repositories
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movie");
                 movieDetails = allMovies.ToObject<MovieDetails>();
-                try
-                {
-                    //Creating the HttpWebRequest
-                    HttpWebRequest request = WebRequest.Create(movieDetails.mediumCoverImage) as HttpWebRequest;
-                    //Setting the Request method HEAD, you can also use GET too.
-                    request.Method = "GET";
-                    //Getting the Web Response.
-                    HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-                    //Returns TRUE if the Status code == 200
-                    response.Close();
-                    Debug.WriteLine(response.StatusCode);
-                    if (response.StatusCode != HttpStatusCode.OK)
-                    {
-                        //Any exception will return false.
-                        Debug.WriteLine("FAIL");
-                        movieDetails.mediumCoverImage = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                        return movieDetails;
-                    }
-                    else
-                    {
-                        Debug.WriteLine("NO FAIL");
-                        return movieDetails;
-                    }
-                }
-                catch
-                {
-                    //Any exception will return false.
-                    Debug.WriteLine("FAIL");
-                    movieDetails.mediumCoverImage = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
-                    return movieDetails;
-                }
+                return movieDetails;
             }
         }
 

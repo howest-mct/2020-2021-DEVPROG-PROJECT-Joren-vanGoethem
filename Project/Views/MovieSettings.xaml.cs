@@ -76,7 +76,7 @@ namespace Project.Views
             Preferences.Set("Genre", genre);
             Preferences.Set("SortBy", sortBy);
             Preferences.Set("OrderBy", orderBy);
-
+            Debug.WriteLine(minimumRating);
 
             Navigation.PushAsync(new MainPage(limit: limit, quality: quality, minimumRating: minimumRating, query: query, genre: genre, sortBy: sortBy, orderBy: orderBy)) ;
         }

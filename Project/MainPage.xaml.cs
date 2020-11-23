@@ -33,7 +33,6 @@ namespace Project
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-           
             pageCounter = page;
             limit = Preferences.Get("Limit", 10);
             quality = Preferences.Get("Quality", "all");
@@ -83,6 +82,12 @@ namespace Project
             if (pageCounter > 1)
             {
                 pageCounter -= 1;
+                limit = Preferences.Get("Limit", 10);
+                quality = Preferences.Get("Quality", "all");
+                minimumRating = Preferences.Get("MinimumRating", 0);
+                genre = Preferences.Get("Genre", "all");
+                sortBy = Preferences.Get("SortBy", "rating");
+                orderBy = Preferences.Get("OrderBy", "desc");
                 LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
                 page.Text = $"Page {pageCounter}";
                 //movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
@@ -97,6 +102,12 @@ namespace Project
         private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
             pageCounter += 1;
+            limit = Preferences.Get("Limit", 10);
+            quality = Preferences.Get("Quality", "all");
+            minimumRating = Preferences.Get("MinimumRating", 0);
+            genre = Preferences.Get("Genre", "all");
+            sortBy = Preferences.Get("SortBy", "rating");
+            orderBy = Preferences.Get("OrderBy", "desc");
             LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
             if (pageCounter > 1)
             {
