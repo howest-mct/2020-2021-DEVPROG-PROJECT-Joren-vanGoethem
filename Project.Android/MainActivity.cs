@@ -19,7 +19,6 @@ namespace Project.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Xamarin.Forms.Forms.SetFlags("RadioButton_Experimental");
-            Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

@@ -1,6 +1,7 @@
 ﻿using Project.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace Project.Views
         }
         private async Task LoadMovieDetails()
         {
+            Debug.WriteLine(selectedMovie.largeScreenshotImage1);
+            Debug.WriteLine(Convert.ToString(selectedMovie.largeScreenshotImage1));
             movieName.Text = selectedMovie.title;
             year.Text = Convert.ToString(selectedMovie.year);
             genres.Text = selectedMovie.genreString;
@@ -42,10 +45,8 @@ namespace Project.Views
 
         private void pictures_Clicked(object sender, EventArgs e)
         {
-            if (selectedMovie.slug != null) //Debug.WriteLine("No items selected");
-            {
-                Navigation.PushAsync(new MovieImages(selectedMovie.slug));
-            }
+            Debug.WriteLine(selectedMovie.largeScreenshotImage1);
+            Navigation.PushAsync(new MovieImages(selectedMovie));
         }
     }
 }
