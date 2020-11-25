@@ -15,16 +15,14 @@ namespace Project.Views
     public partial class MovieDetailsPage : ContentPage
     {
         public MovieDetails selectedMovie { get; set; }
-        public MovieDetailsPage(MovieDetails movieDetails)
+        public MovieDetailsPage(MovieDetails movie)
         {
-            selectedMovie = movieDetails;
+            selectedMovie = movie;
             InitializeComponent();
             LoadMovieDetails();
         }
         private async Task LoadMovieDetails()
         {
-            Debug.WriteLine(selectedMovie.largeScreenshotImage1);
-            Debug.WriteLine(Convert.ToString(selectedMovie.largeScreenshotImage1));
             movieName.Text = selectedMovie.title;
             year.Text = Convert.ToString(selectedMovie.year);
             genres.Text = selectedMovie.genreString;
@@ -45,7 +43,7 @@ namespace Project.Views
 
         private void pictures_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine(selectedMovie.largeScreenshotImage1);
+            Debug.WriteLine("Pictures");
             Navigation.PushAsync(new MovieImages(selectedMovie));
         }
     }

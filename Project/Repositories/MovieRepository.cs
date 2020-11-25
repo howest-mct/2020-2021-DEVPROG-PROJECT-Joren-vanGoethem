@@ -31,9 +31,9 @@ namespace Project.Repositories
                 string url = $"{_APILINK}list_movies.json?limit={limit}&page={page}" +
                     $"&quality={quality}&minimum_rating={minimumRating}&query_term={queryTerm}" +
                     $"&genre={genre}&sort_by={sortBy}&order_by={orderBy}&with_rt_ratings={withRtRatings}"; //Only the part after the api/v2/ and ALWAYS add ?
-                Debug.WriteLine(url);
+                Debug.WriteLine(url.ToLower());
                 
-                string json = await Client.GetStringAsync(url);
+                string json = await Client.GetStringAsync(url.ToLower());
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movies");
                 movies = allMovies.ToObject<List<Movie>>();
@@ -53,9 +53,9 @@ namespace Project.Repositories
             using (HttpClient Client = await GetClientAsync())
             {
                 string url = $"{_APILINK}movie_details.json?movie_id={movieId}&with_images={withImages}&with_cast={withCast}"; //Only the part after the api/v2/ and ALWAYS add ?
-                Debug.WriteLine(url);
+                Debug.WriteLine(url.ToLower());
 
-                string json = await Client.GetStringAsync(url);
+                string json = await Client.GetStringAsync(url.ToLower());
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movie");
                 movieDetails = allMovies.ToObject<MovieDetails>();
