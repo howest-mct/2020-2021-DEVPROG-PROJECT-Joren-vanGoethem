@@ -60,6 +60,7 @@ namespace Project
             movieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
             movies.ItemsSource = movieList;
             movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
+            loadingImage.IsVisible = false;
         }
 
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace Project
         {
             if (pageCounter > 1)
             {
+                loadingImage.IsVisible = true;
                 pageCounter -= 1;
                 limit = Preferences.Get("Limit", 10);
                 quality = Preferences.Get("Quality", "all");
@@ -101,6 +103,7 @@ namespace Project
 
         private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
+            loadingImage.IsVisible = true;
             pageCounter += 1;
             limit = Preferences.Get("Limit", 10);
             quality = Preferences.Get("Quality", "all");

@@ -20,7 +20,6 @@ namespace Project.Views
         public MovieImages(MovieDetails selectedMovie)
         {
             movie = selectedMovie;
-            Debug.WriteLine("pictures 2");
             InitializeComponent();
             LoadImages();
         }
@@ -29,11 +28,8 @@ namespace Project.Views
         {
             Debug.WriteLine(movie.title);
             Debug.WriteLine(movie.largeScreenshotImage1);
-            movieImages = new List<string>() { movie.largeScreenshotImage1, movie.largeScreenshotImage2, movie.largeScreenshotImage3 };
-            foreach (string s in movieImages)
-            {
-                Debug.WriteLine(s);
-            }
+            movieImages = new List<string>() { movie.largeCoverImage, movie.largeScreenshotImage1, movie.largeScreenshotImage2, movie.largeScreenshotImage3 };
+            counter.Text = $"1/{movieImages.Count}";
             imageCounter = 0;
             movieName.Text = movie.title;
             currentImage.Source = movieImages[imageCounter];
@@ -46,32 +42,34 @@ namespace Project.Views
             {
                 imageCounter -= 1;
                 currentImage.Source = movieImages[imageCounter];
+                nextImage.BackgroundColor = Color.FromHex("#5da93c");
+                nextImage.TextColor = Color.FromHex("#FFFFFF");
             }
             if (imageCounter == 0)
             {
                 prevImage.BackgroundColor = Color.FromHex("#919191");
                 prevImage.TextColor = Color.FromHex("#171717");
             }
-           counter.Text = $"{imageCounter + 1}/3";
+           counter.Text = $"{imageCounter + 1}/{movieImages.Count}";
         }
 
         private void nextImage_Clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("next");
-            if (imageCounter >= 0 && imageCounter < 2 )
+            if (imageCounter >= 0 && imageCounter < movieImages.Count-1 )
             {
                 imageCounter += 1;
                 prevImage.BackgroundColor = Color.FromHex("#5da93c");
                 prevImage.TextColor = Color.FromHex("#FFFFFF");
                 currentImage.Source = movieImages[imageCounter];
             }
-            if (imageCounter == 2)
+            if (imageCounter == movieImages.Count-1)
             {
                 nextImage.BackgroundColor = Color.FromHex("#919191");
                 nextImage.TextColor = Color.FromHex("#171717");
             }
 
-            counter.Text = $"{imageCounter + 1}/3";
+            counter.Text = $"{imageCounter + 1}/{movieImages.Count}";
         }
     }
 }

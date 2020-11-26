@@ -1,12 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#1d1d1d"
              x:Class="Project.Views.Torrents">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="movieName" Text="Movie Name" Grid.Row="0" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+            <Label x:Name="resType" Text="res+type" Grid.Row="1" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+            <Label x:Name="seeds" Text="seeds" Grid.Row="2" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+            <Label x:Name="peers" Text="peers" Grid.Row="3" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+            <Label x:Name="size" Text="size" Grid.Row="4" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+            <Button x:Name="download" Text="Download" Grid.Row="5" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+
+            
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -57,51 +57,5 @@ namespace Project.Models
         //public string dateUploaded { get; set; }
         //[JsonProperty("date_uploaded_unix")]
         //public int dateUploadedUnix { get; set; }
-
-        //public string resolutions
-        //{
-        //    get
-        //    {
-        //        string resolutionString = "";
-        //        foreach(Torrent t in torrents)
-        //        {
-        //            resolutionString += t.quality + ", ";
-        //        }
-        //        resolutionString = resolutionString.TrimEnd(' ', ',');
-        //        return resolutionString;
-
-        //    }
-        //}
-        //public string genreString
-        //{
-        //    get
-        //    {
-        //        string genreString = "";
-        //        foreach (string s in genres)
-        //        {
-        //            genreString += s + " / ";
-        //        }
-        //        genreString = genreString.TrimEnd(' ', '/');
-        //        return genreString;
-        //    }
-        //}
-
-        //public string runtimeString
-        //{
-        //    get
-        //    {
-        //        if (runtime > 60)
-        //        {
-        //            int hours = runtime / 60;
-        //            int minutes = runtime - (hours * 60);
-        //            string result = $"{hours}h {minutes}m";
-        //            return result;
-        //        }
-        //        else
-        //        {
-        //            return $"{Convert.ToString(runtime)}m";
-        //        }
-        //    }
-        //}
     }
 }
