@@ -17,12 +17,46 @@ namespace Project.Views
     public partial class MovieDetailsPage : ContentPage
     {
         public MovieDetails movie { get; set; }
+        public List<MovieDetails> suggestions { get; set; }
         public MovieDetailsPage(MovieDetails selectedMovie)
         {
             movie = selectedMovie;
             InitializeComponent();
             LoadMovieDetails();
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
+
+            //suggestion1.GestureRecognizers.Add(tapGestureRecognizer);
+
+            List<CachedImage> images = new List<CachedImage>() { suggestion1, suggestion2, suggestion3, suggestion4 };
+            foreach (CachedImage C in images)
+            {
+                C.GestureRecognizers.Add(tapGestureRecognizer);
+            }
+
+
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Debug.WriteLine("tapped");
+            if (sender is CachedImage image)
+            {
+                Debug.WriteLine("image");
+                for (int i = 0; i<suggestions.Count; i++)
+                {
+                    Debug.WriteLine("forloop");
+                    Debug.WriteLine(Convert.ToString(image.Source).Split(' ')[1]);
+                    Debug.WriteLine(suggestions[i].mediumCoverImage);
+                    if (Convert.ToString(image.Source).Split(' ')[1] == suggestions[i].mediumCoverImage)
+                    {
+                        MovieDetails tappedmovie = await MovieRepository.GetMovieDetailsAsync(suggestions[i].id);
+                        await Navigation.PushAsync(new MovieDetailsPage(tappedmovie));
+                    }
+                }
+            }
+        }
+
         private async Task LoadMovieDetails()
         {
             movieName.Text = movie.title;
@@ -57,7 +91,7 @@ namespace Project.Views
 
         private async Task load_suggestions()
         {
-            List<MovieDetails> suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.id);
+            suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.id);
             List<CachedImage> images = new List<CachedImage>(){ suggestion1, suggestion2, suggestion3, suggestion4 };
             for(int i = 0; i<images.Count; i++)
             {

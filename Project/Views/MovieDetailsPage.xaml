@@ -93,9 +93,9 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <forms:CachedImage x:Name="suggestion3" Grid.Column="0" HeightRequest="300" WidthRequest="200" Aspect="AspectFit" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Source="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" VerticalOptions="Start" HorizontalOptions="Center" Margin="2"/>
+                        <forms:CachedImage x:Name="suggestion3" Grid.Column="0" HeightRequest="300" WidthRequest="300" Aspect="AspectFit" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Source="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" VerticalOptions="Start" HorizontalOptions="Center" Margin="2"/>
                         
-                        <forms:CachedImage x:Name="suggestion4" Grid.Column="1" HeightRequest="300" WidthRequest="200" Aspect="AspectFit" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Source="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" VerticalOptions="Start" HorizontalOptions="Center" Margin="2"/>
+                        <forms:CachedImage x:Name="suggestion4" Grid.Column="1" HeightRequest="300" WidthRequest="300" Aspect="AspectFit" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Source="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" VerticalOptions="Start" HorizontalOptions="Center" Margin="2"/>
                     </Grid>
                 </Grid>
 
