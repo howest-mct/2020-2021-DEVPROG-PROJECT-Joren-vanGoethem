@@ -33,19 +33,14 @@ namespace Project.Views
             {
                 C.GestureRecognizers.Add(tapGestureRecognizer);
             }
-
-
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            Debug.WriteLine("tapped");
             if (sender is CachedImage image)
             {
-                Debug.WriteLine("image");
                 for (int i = 0; i<suggestions.Count; i++)
                 {
-                    Debug.WriteLine("forloop");
                     Debug.WriteLine(Convert.ToString(image.Source).Split(' ')[1]);
                     Debug.WriteLine(suggestions[i].mediumCoverImage);
                     if (Convert.ToString(image.Source).Split(' ')[1] == suggestions[i].mediumCoverImage)
@@ -86,7 +81,7 @@ namespace Project.Views
 
         private void torrents_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Torrents());
+            Navigation.PushAsync(new Torrents(movie));
         }
 
         private async Task load_suggestions()

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +14,27 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Torrents : ContentPage
     {
-        public Torrents()
+        public MovieDetails movie { get; set; }
+        public Torrents(MovieDetails selectedmovie)
         {
+            movie = selectedmovie;
             InitializeComponent();
-            Launcher.OpenAsync(new Uri("http://www.google.com"));
+            LoadTorrents();
         }
+
+        private async void LoadTorrents()
+        {
+            movieName.Text = movie.title;
+            torrents.ItemsSource = movie.torrents;
+        }
+
+        private void download_Clicked(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                Launcher.OpenAsync(new Uri(button.Text));
+            }
+        }
+
     }
 }

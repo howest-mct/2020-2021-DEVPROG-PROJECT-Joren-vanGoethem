@@ -6,26 +6,49 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name="movieName" Text="Movie Name" Grid.Row="0" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+            <Label Text="Torrents for" Grid.Row="0" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="movieName" Text="movie" Grid.Row="0" TextColor="White" Margin="110,0,0,0" FontSize="20" FontAttributes="Bold"/>
+            <ListView x:Name="torrents" Grid.Row="1" Margin="5,-10,5,0" RowHeight="135" SeparatorColor="#000000">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="10" Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-            <Label x:Name="resType" Text="res+type" Grid.Row="1" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label x:Name="quality" Text="{Binding quality}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
+                                <Label x:Name="type" Text="{Binding type}" Margin="55,0,0,0" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
 
-            <Label x:Name="seeds" Text="seeds" Grid.Row="2" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label Text="Seeds:" Grid.Row="1" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
+                                <Label x:Name="seeds" Text="{Binding seeds}" Margin="53,0,0,0" Grid.Row="1" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
 
-            <Label x:Name="peers" Text="peers" Grid.Row="3" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label Text="Peers:" Grid.Row="2" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
+                                <Label x:Name="peers" Text="{Binding peers}" Margin="50,0,0,0" Grid.Row="2" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
 
-            <Label x:Name="size" Text="size" Grid.Row="4" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                                <Label Text="File Size:" Grid.Row="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
+                                <Label x:Name="size" Text="{Binding size}" Margin="70,0,0,0" Grid.Row="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
 
-            <Button x:Name="download" Text="Download" Grid.Row="5" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Grid Grid.Row="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End">
+                                    <Button x:Name="download" Text="{Binding url}" WidthRequest="150" TextColor="#5da93c" FontSize="1" BackgroundColor="#5da93c" Clicked="download_Clicked"/>
+                                    <Label Text="Download" TextColor="White" FontSize="20" Margin="30,12,0,0" FontAttributes="Bold"/>
+                                </Grid>
 
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            
 
             
 
