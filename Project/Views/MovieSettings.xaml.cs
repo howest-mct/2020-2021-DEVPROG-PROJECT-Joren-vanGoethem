@@ -18,38 +18,38 @@ namespace Project.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MovieSettings : ContentPage
     {
-        public int limit { get; set; }
-        public string quality { get; set; }
-        public int minimumRating { get; set; }
-        public string query { get; set; }
-        public string genre { get; set; }
-        public string sortBy { get; set; }
-        public string orderBy { get; set; }
+        public int Limit { get; set; }
+        public string Quality { get; set; }
+        public int MinimumRating { get; set; }
+        public string Query { get; set; }
+        public string Genre { get; set; }
+        public string SortBy { get; set; }
+        public string OrderBy { get; set; }
 
         public MovieSettings()
         {
-            limit = Preferences.Get("Limit", 10);
-            quality = Preferences.Get("Quality", "all");
-            minimumRating = Preferences.Get("MinimumRating", 0);
-            genre = Preferences.Get("Genre", "all");
-            sortBy = Preferences.Get("SortBy", "rating");
-            orderBy = Preferences.Get("OrderBy", "desc");
+            Limit = Preferences.Get("Limit", 10);
+            Quality = Preferences.Get("Quality", "all");
+            MinimumRating = Preferences.Get("MinimumRating", 0);
+            Genre = Preferences.Get("Genre", "all");
+            SortBy = Preferences.Get("SortBy", "rating");
+            OrderBy = Preferences.Get("OrderBy", "desc");
             InitializeComponent();
             LoadSettings();
         }
 
         private async Task LoadSettings()
         {
-            movieCount.Text = Convert.ToString(limit);
+            movieCount.Text = Convert.ToString(Limit);
             List <RadioButton> radioButtonList = new List<RadioButton>() {allQualities, res720, res1080, res2160, res3D };
 
             foreach (RadioButton R in radioButtonList)
             {
-                if (R.Text == quality)
+                if (R.Text == Quality)
                     R.IsChecked = true;
             }
 
-            imdbRating.Text = Convert.ToString(minimumRating);
+            imdbRating.Text = Convert.ToString(MinimumRating);
         }
 
         private void Cancelbtn_Clicked(object sender, EventArgs e)
@@ -58,27 +58,27 @@ namespace Project.Views
         }
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
-            limit = Convert.ToUInt16(movieCount.Text);
+            Limit = Convert.ToUInt16(movieCount.Text);
             List<RadioButton> radioButtonList = new List<RadioButton>(){allQualities, res720, res1080, res2160, res3D };
 
             foreach(RadioButton R in radioButtonList)
             {
                 if (R.IsChecked == true)
-                    quality = R.Text;
+                    Quality = R.Text;
             }
 
-            minimumRating = Convert.ToUInt16(imdbRating.Text);
-            query = movieQuery.Text;
+            MinimumRating = Convert.ToUInt16(imdbRating.Text);
+            Query = movieQuery.Text;
 
-            Preferences.Set("Limit", limit);
-            Preferences.Set("Quality", quality);
-            Preferences.Set("MinimumRating", minimumRating);
-            Preferences.Set("Genre", genre);
-            Preferences.Set("SortBy", sortBy);
-            Preferences.Set("OrderBy", orderBy);
-            Debug.WriteLine(minimumRating);
+            Preferences.Set("Limit", Limit);
+            Preferences.Set("Quality", Quality);
+            Preferences.Set("MinimumRating", MinimumRating);
+            Preferences.Set("Query", Query);
+            Preferences.Set("Genre", Genre);
+            Preferences.Set("SortBy", SortBy);
+            Preferences.Set("OrderBy", OrderBy);
 
-            Navigation.PushAsync(new MainPage(limit: limit, quality: quality, minimumRating: minimumRating, query: query, genre: genre, sortBy: sortBy, orderBy: orderBy)) ;
+            Navigation.PushAsync(new MainPage(limit: Limit, quality: Quality, minimumRating: MinimumRating, query: Query, genre: Genre, sortBy: SortBy, orderBy: OrderBy)) ;
         }
     }
 }

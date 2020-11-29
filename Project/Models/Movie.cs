@@ -7,7 +7,8 @@ namespace Project.Models
 {
     public class Movie
     {
-        public int id { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
         //public string url { get; set; }
 
         //[JsonProperty("imdb_code")]

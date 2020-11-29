@@ -20,28 +20,29 @@ namespace Project
 {
     public partial class MainPage : ContentPage
     {
-        public int limit { get; set; }
-        public int pageCounter { get; set; }
-        public string quality { get; set; }
-        public int minimumRating { get; set; }
-        public string query { get; set; }
-        public string genre { get; set; }
-        public string sortBy { get; set; }
-        public string orderBy { get; set; }
+        public int Limit { get; set; }
+        public int PageCounter { get; set; }
+        public string Quality { get; set; }
+        public int MinimumRating { get; set; }
+        public string Query { get; set; }
+        public string Genre { get; set; }
+        public string SortBy { get; set; }
+        public string OrderBy { get; set; }
 
         public List<MovieDetails> movieList { get; set; }
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            pageCounter = page;
-            limit = Preferences.Get("Limit", 10);
-            quality = Preferences.Get("Quality", "all");
-            minimumRating = Preferences.Get("MinimumRating", 0);
-            genre = Preferences.Get("Genre", "all");
-            sortBy = Preferences.Get("SortBy", "rating");
-            orderBy = Preferences.Get("OrderBy", "desc");
+            PageCounter = page;
+            Limit = Preferences.Get("Limit", limit);
+            Quality = Preferences.Get("Quality", quality);
+            MinimumRating = Preferences.Get("MinimumRating", minimumRating);
+            Query = query;
+            Genre = Preferences.Get("Genre", genre);
+            SortBy = Preferences.Get("SortBy", sortBy);
+            OrderBy = Preferences.Get("OrderBy", orderBy);
             InitializeComponent();
-            LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
+            LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
             //test();
         }
 
@@ -80,21 +81,21 @@ namespace Project
 
         private void PrevPagebtn_Clicked(object sender, EventArgs e)
         {
-            if (pageCounter > 1)
+            if (PageCounter > 1)
             {
                 loadingImage.IsVisible = true;
-                pageCounter -= 1;
-                limit = Preferences.Get("Limit", 10);
-                quality = Preferences.Get("Quality", "all");
-                minimumRating = Preferences.Get("MinimumRating", 0);
-                genre = Preferences.Get("Genre", "all");
-                sortBy = Preferences.Get("SortBy", "rating");
-                orderBy = Preferences.Get("OrderBy", "desc");
-                LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
-                page.Text = $"Page {pageCounter}";
+                PageCounter -= 1;
+                Limit = Preferences.Get("Limit", 10);
+                Quality = Preferences.Get("Quality", "all");
+                MinimumRating = Preferences.Get("MinimumRating", 0);
+                Genre = Preferences.Get("Genre", "all");
+                SortBy = Preferences.Get("SortBy", "rating");
+                OrderBy = Preferences.Get("OrderBy", "desc");
+                LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
+                page.Text = $"Page {PageCounter}";
                 //movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
             }
-            if (pageCounter == 1)
+            if (PageCounter == 1)
             {
                 prevPage.BackgroundColor = Color.FromHex("#919191");
                 prevPage.TextColor = Color.FromHex("#171717");
@@ -104,21 +105,21 @@ namespace Project
         private void NextPagebtn_Clicked(object sender, EventArgs e)
         {
             loadingImage.IsVisible = true;
-            pageCounter += 1;
-            limit = Preferences.Get("Limit", 10);
-            quality = Preferences.Get("Quality", "all");
-            minimumRating = Preferences.Get("MinimumRating", 0);
-            genre = Preferences.Get("Genre", "all");
-            sortBy = Preferences.Get("SortBy", "rating");
-            orderBy = Preferences.Get("OrderBy", "desc");
-            LoadMovies(limit, pageCounter, quality, minimumRating, query, genre, sortBy, orderBy);
-            if (pageCounter > 1)
+            PageCounter += 1;
+            Limit = Preferences.Get("Limit", 10);
+            Quality = Preferences.Get("Quality", "all");
+            MinimumRating = Preferences.Get("MinimumRating", 0);
+            Genre = Preferences.Get("Genre", "all");
+            SortBy = Preferences.Get("SortBy", "rating");
+            OrderBy = Preferences.Get("OrderBy", "desc");
+            LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
+            if (PageCounter > 1)
             {
                 prevPage.BackgroundColor = Color.FromHex("#5da93c");
                 prevPage.TextColor = Color.FromHex("#FFFFFF");
                 //movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
             }
-            page.Text = $"Page {pageCounter}";
+            page.Text = $"Page {PageCounter}";
         }
 
         //private void coverImage_Error(object sender, CachedImageEvents.ErrorEventArgs e)

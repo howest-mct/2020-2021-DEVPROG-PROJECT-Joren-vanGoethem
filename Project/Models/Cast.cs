@@ -7,12 +7,13 @@ namespace Project.Models
 {
     public class Cast
     {
-        public string name { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
         [JsonProperty("character_name")]
-        public string characterName { get; set; }
+        public string CharacterName { get; set; }
         [JsonProperty("url_small_image")]
-        public string urlSmallImage { get; set; }
+        public string UrlSmallImage { get; set; }
         [JsonProperty("imdb_code")]
-        public string imdbCode { get; set; }
+        public string ImdbCode { get; set; }
     }
 }

@@ -26,18 +26,15 @@ namespace Project.Views
 
         private void LoadImages()
         {
-            Debug.WriteLine(movie.title);
-            Debug.WriteLine(movie.largeScreenshotImage1);
-            movieImages = new List<string>() { movie.largeCoverImage, movie.largeScreenshotImage1, movie.largeScreenshotImage2, movie.largeScreenshotImage3 };
+            movieImages = new List<string>() { movie.LargeCoverImage, movie.LargeScreenshotImage1, movie.LargeScreenshotImage2, movie.LargeScreenshotImage3 };
             counter.Text = $"1/{movieImages.Count}";
             imageCounter = 0;
-            movieName.Text = movie.title;
+            movieName.Text = movie.Title;
             currentImage.Source = movieImages[imageCounter];
         }
 
         private void prevImage_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("prev");
             if (imageCounter > 0)
             {
                 imageCounter -= 1;
@@ -55,7 +52,6 @@ namespace Project.Views
 
         private void nextImage_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("next");
             if (imageCounter >= 0 && imageCounter < movieImages.Count-1 )
             {
                 imageCounter += 1;

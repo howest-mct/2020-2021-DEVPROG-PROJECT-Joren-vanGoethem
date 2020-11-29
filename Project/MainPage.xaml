@@ -25,7 +25,7 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <forms:CachedImage x:Name="coverImage" Grid.Column="0" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding mediumCoverImage}" Margin="1,1,0,1"/>
+                                <forms:CachedImage x:Name="coverImage" Grid.Column="0" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding MediumCoverImage}" Margin="1,1,0,1"/>
 
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>
@@ -35,16 +35,16 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label x:Name="title" Text="{Binding titleLong}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
-                                    <Label x:Name="genres" Text="{Binding genreString}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
-                                    <Label x:Name="weight" Text="{Binding resolutions}" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    <Label x:Name="title" Text="{Binding TitleLong}" Grid.Row="0" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
+                                    <Label x:Name="genres" Text="{Binding GenreString}" Grid.Row="1" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                    <Label x:Name="weight" Text="{Binding Resolutions}" Grid.Row="2" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     <Grid Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="End">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
                                         <Image x:Name="imdbLogo" HeightRequest="20" Aspect="AspectFit" Grid.Column="0" Source="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png" VerticalOptions="Start" HorizontalOptions="Start"/>
-                                        <Label x:Name="rating" Grid.Column="1" Margin="5,0,0,0" Text="{Binding rating}" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
+                                        <Label x:Name="rating" Grid.Column="1" Margin="5,0,0,0" Text="{Binding Rating}" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="16"/>
                                     </Grid>
                                 </Grid>
                             </Grid>

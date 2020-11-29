@@ -7,20 +7,27 @@ namespace Project.Models
 {
     public class Torrent
     {
-        public string url { get; set; }
-        public string hash { get; set; }
-        public string quality { get; set; }
-        public string type { get; set; }
-        public int seeds { get; set; }
-        public int peers { get; set; }
-        public string size { get; set; }
+        [JsonProperty("url")]
+        public string Url { get; set; }
+        [JsonProperty("hash")]
+        public string Hash { get; set; }
+        [JsonProperty("quality")]
+        public string Quality { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        [JsonProperty("seeds")]
+        public int Seeds { get; set; }
+        [JsonProperty("peers")]
+        public int Peers { get; set; }
+        [JsonProperty("size")]
+        public string Size { get; set; }
         [JsonProperty("size_bytes")]
-        public long sizeBytes { get; set; }
+        public long SizeBytes { get; set; }
 
         [JsonProperty("date_uploaded")]
-        public string dateUploaded { get; set; }
+        public string DateUploaded { get; set; }
 
         [JsonProperty("date_uploaded_unix")]
-        public int dateUploadedUnix { get; set; }
+        public int DateUploadedUnix { get; set; }
     }
 }

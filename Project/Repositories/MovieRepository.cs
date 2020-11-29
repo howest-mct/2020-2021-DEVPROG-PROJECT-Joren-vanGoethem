@@ -39,7 +39,7 @@ namespace Project.Repositories
                 movies = allMovies.ToObject<List<Movie>>();
                 foreach(Movie movie in movies)
                 {
-                    moviesDetails.Add(await GetMovieDetailsAsync(movie.id));
+                    moviesDetails.Add(await GetMovieDetailsAsync(movie.Id));
                 }
                 return moviesDetails;
             }

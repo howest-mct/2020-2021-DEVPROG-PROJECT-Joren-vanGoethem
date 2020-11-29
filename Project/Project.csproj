@@ -34,12 +34,12 @@
     <Compile Update="Views\MovieDetailsPage.xaml.cs">
       <DependentUpon>MovieDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\TorrentPage.xaml.cs">
+      <DependentUpon>TorrentPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Comments.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MovieDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -49,7 +49,7 @@
     <EmbeddedResource Update="Views\MovieSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Torrents.xaml">
+    <EmbeddedResource Update="Views\TorrentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Trailer.xaml">

@@ -42,10 +42,10 @@ namespace Project.Views
                 for (int i = 0; i<suggestions.Count; i++)
                 {
                     Debug.WriteLine(Convert.ToString(image.Source).Split(' ')[1]);
-                    Debug.WriteLine(suggestions[i].mediumCoverImage);
-                    if (Convert.ToString(image.Source).Split(' ')[1] == suggestions[i].mediumCoverImage)
+                    Debug.WriteLine(suggestions[i].MediumCoverImage);
+                    if (Convert.ToString(image.Source).Split(' ')[1] == suggestions[i].MediumCoverImage)
                     {
-                        MovieDetails tappedmovie = await MovieRepository.GetMovieDetailsAsync(suggestions[i].id);
+                        MovieDetails tappedmovie = await MovieRepository.GetMovieDetailsAsync(suggestions[i].Id);
                         await Navigation.PushAsync(new MovieDetailsPage(tappedmovie));
                     }
                 }
@@ -54,22 +54,22 @@ namespace Project.Views
 
         private async Task LoadMovieDetails()
         {
-            movieName.Text = movie.title;
-            year.Text = Convert.ToString(movie.year);
-            genres.Text = movie.genreString;
-            moviePicture.Source = movie.largeCoverImage;
-            runtime.Text = movie.runtimeString;
-            resolutions.Text = movie.resolutions;
-            rating.Text = Convert.ToString(movie.rating);
-            description.Text = movie.descriptionFull;
+            movieName.Text = movie.Title;
+            year.Text = Convert.ToString(movie.Year);
+            genres.Text = movie.GenreString;
+            moviePicture.Source = movie.LargeCoverImage;
+            runtime.Text = movie.RuntimeString;
+            resolutions.Text = movie.Resolutions;
+            rating.Text = Convert.ToString(movie.Rating);
+            description.Text = movie.DescriptionFull;
             await load_suggestions();
         }
 
         private void trailer_Clicked(object sender, EventArgs e)
         {
-            if (movie.ytTrailerCode != null) //Debug.WriteLine("No items selected");
+            if (movie.YtTrailerCode != null) //Debug.WriteLine("No items selected");
             {
-                Navigation.PushAsync(new Trailer(movie.ytTrailerCode));
+                Navigation.PushAsync(new Trailer(movie.YtTrailerCode));
             }
         }
 
@@ -81,16 +81,16 @@ namespace Project.Views
 
         private void torrents_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Torrents(movie));
+            Navigation.PushAsync(new TorrentPage(movie));
         }
 
         private async Task load_suggestions()
         {
-            suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.id);
+            suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.Id);
             List<CachedImage> images = new List<CachedImage>(){ suggestion1, suggestion2, suggestion3, suggestion4 };
             for(int i = 0; i<images.Count; i++)
             {
-                images[i].Source = suggestions[i].mediumCoverImage;
+                images[i].Source = suggestions[i].MediumCoverImage;
             }
         }
     }

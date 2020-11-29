@@ -12,20 +12,20 @@ using Xamarin.Forms.Xaml;
 namespace Project.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Torrents : ContentPage
+    public partial class TorrentPage : ContentPage
     {
-        public MovieDetails movie { get; set; }
-        public Torrents(MovieDetails selectedmovie)
+        public MovieDetails Movie { get; set; }
+        public TorrentPage(MovieDetails selectedMovie)
         {
-            movie = selectedmovie;
+            Movie = selectedMovie;
             InitializeComponent();
             LoadTorrents();
         }
 
         private async void LoadTorrents()
         {
-            movieName.Text = movie.title;
-            torrents.ItemsSource = movie.torrents;
+            movieName.Text = Movie.Title;
+            torrents.ItemsSource = Movie.Torrents;
         }
 
         private void download_Clicked(object sender, EventArgs e)

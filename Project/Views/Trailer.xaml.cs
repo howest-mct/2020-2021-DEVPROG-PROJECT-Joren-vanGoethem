@@ -15,11 +15,6 @@ namespace Project.Views
         public Trailer(string trailerCode)
         {
             InitializeComponent();
-            LoadTrailer(trailerCode);
-        }
-
-        private async Task LoadTrailer(string trailerCode)
-        {
             trailer.Source = $"https://www.youtube.com/embed/{trailerCode}";
         }
     }

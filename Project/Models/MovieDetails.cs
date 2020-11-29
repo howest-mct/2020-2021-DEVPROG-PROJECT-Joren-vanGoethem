@@ -9,129 +9,141 @@ namespace Project.Models
 {
     public class MovieDetails
     {
-        public int id { get; set; }
-        public string url { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
+        [JsonProperty("url")]
+        public string Url { get; set; }
 
         [JsonProperty("imdb_code")]
-        public string imdbCode { get; set; }
-        public string title { get; set; }
+        public string ImdbCode { get; set; }
+        [JsonProperty("title")]
+        public string Title { get; set; }
 
         [JsonProperty("title_english")]
-        public string titleEnglish { get; set; }
+        public string TitleEnglish { get; set; }
 
         [JsonProperty("title_long")]
-        public string titleLong { get; set; }
-        public string slug { get; set; }
-        public int year { get; set; }
-        public float rating { get; set; }
-        public int runtime { get; set; }
-        public string[] genres { get; set; }
+        public string TitleLong { get; set; }
+        [JsonProperty("slug")]
+        public string Slug { get; set; }
+        [JsonProperty("year")]
+        public int Year { get; set; }
+        [JsonProperty("rating")]
+        public float Rating { get; set; }
+        [JsonProperty("runtime")]
+        public int Runtime { get; set; }
+        [JsonProperty("genres")]
+        public string[] Genres { get; set; }
 
         [JsonProperty("download_count")]
-        public int downloadCount { get; set; }
+        public int DownloadCount { get; set; }
 
         [JsonProperty("like_count")]
-        public int likeCount { get; set; }
+        public int LikeCount { get; set; }
 
         [JsonProperty("description_intro")]
-        public string descriptionIntro { get; set; }
+        public string DescriptionIntro { get; set; }
 
         [JsonProperty("description_full")]
-        public string descriptionFull { get; set; }
+        public string DescriptionFull { get; set; }
 
         [JsonProperty("yt_trailer_code")]
-        public string ytTrailerCode { get; set; }
-        public string language { get; set; }
+        public string YtTrailerCode { get; set; }
+
+        [JsonProperty("language")]
+        public string Language { get; set; }
 
         [JsonProperty("mpa_rating")]
-        public string mpaRating { get; set; }
+        public string MpaRating { get; set; }
 
         [JsonProperty("background_image")]
-        public string backgroundImage { get; set; }
+        public string BackgroundImage { get; set; }
 
         [JsonProperty("background_image_original")]
-        public string backgroundImageOriginal { get; set; }
+        public string BackgroundImageOriginal { get; set; }
 
         [JsonProperty("small_cover_image")]
-        public string smallCoverImage { get; set; }
+        public string SmallCoverImage { get; set; }
 
         [JsonProperty("medium_cover_image")]
-        public string mediumCoverImage { get; set; }
+        public string MediumCoverImage { get; set; }
 
         [JsonProperty("large_cover_image")]
-        public string largeCoverImage { get; set; }
+        public string LargeCoverImage { get; set; }
        
         [JsonProperty("medium_screenshot_image1")]
-        public string mediumScreenshotImage1 { get; set; }
+        public string MediumScreenshotImage1 { get; set; }
 
         [JsonProperty("medium_screenshot_image2")]
-        public string mediumScreenshotImage2 { get; set; }
+        public string MediumScreenshotImage2 { get; set; }
 
         [JsonProperty("medium_screenshot_image3")]
-        public string mediumScreenshotImage3 { get; set; }
+        public string MediumScreenshotImage3 { get; set; }
 
         [JsonProperty("large_screenshot_image1")]
-        public string largeScreenshotImage1 { get; set; }
+        public string LargeScreenshotImage1 { get; set; }
 
         [JsonProperty("large_screenshot_image2")]
-        public string largeScreenshotImage2 { get; set; }
+        public string LargeScreenshotImage2 { get; set; }
 
         [JsonProperty("large_screenshot_image3")]
-        public string largeScreenshotImage3 { get; set; }
-        public Cast[] cast { get; set; }
-        public Torrent[] torrents { get; set; }
+        public string LargeScreenshotImage3 { get; set; }
+        [JsonProperty("cast")]
+        public Cast[] Cast { get; set; }
+        [JsonProperty("torrents")]
+        public Torrent[] Torrents { get; set; }
 
         [JsonProperty("date_uploaded")]
-        public string dateUploaded { get; set; }
+        public string DateUploaded { get; set; }
 
         [JsonProperty("date_uploaded_unix")]
-        public int dateUploadedUnix { get; set; }
-        public string resolutions
+        public int DateUploadedUnix { get; set; }
+        public string Resolutions
         {
             get
             {
-                string resolutionString = "";
-                foreach (Torrent t in torrents)
+                string ResolutionString = "";
+                foreach (Torrent T in Torrents)
                 {
-                    resolutionString += t.quality + ", ";
+                    ResolutionString += T.Quality + ", ";
                 }
-                resolutionString = resolutionString.TrimEnd(' ', ',');
+                ResolutionString = ResolutionString.TrimEnd(' ', ',');
 
 
-                return resolutionString;
+                return ResolutionString;
 
             }
         }
-        public string genreString
+        public string GenreString
         {
             get
             {
-                string genreString = "";
-                foreach (string s in genres)
+                string GenreString = "";
+                foreach (string S in Genres)
                 {
-                    genreString += s + " / ";
+                    GenreString += S + " / ";
                 }
-                genreString = genreString.TrimEnd(' ', '/');
+                GenreString = GenreString.TrimEnd(' ', '/');
 
-                return genreString;
+                return GenreString;
 
             }
         }
 
-        public string runtimeString
+        public string RuntimeString
         {
             get
             {
-                if (runtime > 60)
+                if (Runtime > 60)
                 {
-                    int hours = runtime / 60;
-                    int minutes = runtime - (hours * 60);
-                    string result = $"{hours}h {minutes}m";
-                    return result;
+                    int Hours = Runtime / 60;
+                    int Minutes = Runtime - (Hours * 60);
+                    string Result = $"{Hours}h {Minutes}m";
+                    return Result;
                 }
                 else
                 {
-                    return $"{Convert.ToString(runtime)}m";
+                    return $"{Convert.ToString(Runtime)}m";
                 }
             }
         }
