@@ -8,7 +8,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
-                <RowDefinition Height="45"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
             <Label Text="Torrents for" Grid.Row="0" TextColor="White" FontSize="20" FontAttributes="Bold"/>
@@ -47,10 +47,19 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid Grid.Row="2" Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            
+                <Button x:Name="back" Text="Back" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="back_Clicked"/>
+                
+            </Grid>
 
-            
+
+
 
 
         </Grid>

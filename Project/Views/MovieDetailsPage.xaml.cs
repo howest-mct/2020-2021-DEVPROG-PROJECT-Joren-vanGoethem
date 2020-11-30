@@ -93,5 +93,10 @@ namespace Project.Views
                 images[i].Source = suggestions[i].MediumCoverImage;
             }
         }
+
+        private void back_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

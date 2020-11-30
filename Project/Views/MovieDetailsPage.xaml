@@ -99,8 +99,17 @@
                     </Grid>
                 </Grid>
 
-                <Button x:Name="torrents" Text="Torrents" Grid.Row="8" Margin="5,15,5,5" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="End" HorizontalOptions="End" Clicked="torrents_Clicked"/>
+                
+                <Grid Grid.Row="8" Margin="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
+                    <Button x:Name="back" Text="Back" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="back_Clicked"/>
+                    <Button x:Name="torrents" Text="Torrents" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="End" HorizontalOptions="End" Clicked="torrents_Clicked"/>
+                </Grid>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

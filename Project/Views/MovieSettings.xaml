@@ -16,7 +16,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
             <Entry x:Name="movieQuery" Grid.Row="0" FontSize="19" Placeholder="Search Query" TextColor="White" PlaceholderColor="#919191"/>
@@ -100,7 +100,7 @@
             <Label Text="Order By:" Grid.Row="8" FontSize="19" TextColor="White"/>-->
 
 
-            <Grid Grid.Row="10" Margin="3">
+            <Grid Grid.Row="10" Margin="6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>

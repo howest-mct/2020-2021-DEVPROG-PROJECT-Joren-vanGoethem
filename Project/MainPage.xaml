@@ -10,7 +10,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="43"/>
+                <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
 
             <Button x:Name="movieFilter" Text="Settings" WidthRequest="1000" Grid.Row="0" TextColor="White" BackgroundColor="#5da93c" Margin="0,1,0,1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="MovieFilterBtn_Clicked"/>

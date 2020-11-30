@@ -36,5 +36,9 @@ namespace Project.Views
             }
         }
 
+        private void back_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
