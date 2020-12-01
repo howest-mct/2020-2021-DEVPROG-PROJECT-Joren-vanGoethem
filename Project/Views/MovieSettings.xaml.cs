@@ -58,6 +58,7 @@ namespace Project.Views
         }
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
+            App.Cache.RemoveAll();
             Limit = Convert.ToUInt16(movieCount.Text);
             List<RadioButton> radioButtonList = new List<RadioButton>(){allQualities, res720, res1080, res2160, res3D };
 

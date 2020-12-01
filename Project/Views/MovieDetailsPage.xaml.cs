@@ -86,7 +86,12 @@ namespace Project.Views
 
         private async Task load_suggestions()
         {
-            suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.Id);
+            suggestions = App.Cache.Get<List<MovieDetails>>($"moviesuggestions {movie.Id}");
+            if (suggestions == null) { 
+                suggestions = await MovieRepository.GetMovieSuggestionsAsync(movie.Id);
+                App.Cache.Set<List<MovieDetails>>($"moviesuggestions {movie.Id}", suggestions);
+            }
+
             List<CachedImage> images = new List<CachedImage>(){ suggestion1, suggestion2, suggestion3, suggestion4 };
             for(int i = 0; i<images.Count; i++)
             {

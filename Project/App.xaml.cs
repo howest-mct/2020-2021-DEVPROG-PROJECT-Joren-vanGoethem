@@ -11,6 +11,7 @@ namespace Project
         public App()
         {
             InitializeComponent();
+            Cache.RemoveAll();
             MainPage = new NavigationPage(new MainPage());
         }
 

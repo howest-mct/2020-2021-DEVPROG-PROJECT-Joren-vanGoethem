@@ -58,11 +58,11 @@ namespace Project
 
         private async Task LoadMovies(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            MovieList = App.Cache.Get<List<MovieDetails>>($"movie {page}");
+            MovieList = App.Cache.Get<List<MovieDetails>>($"moviepage {page}");
 
             if (MovieList == null) { 
                 MovieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
-                App.Cache.Set<List<MovieDetails>>($"movie {page}", MovieList);
+                App.Cache.Set<List<MovieDetails>>($"moviepage {page}", MovieList);
             }
 
             movies.ItemsSource = MovieList;
