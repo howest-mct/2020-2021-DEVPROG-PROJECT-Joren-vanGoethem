@@ -15,5 +15,11 @@ namespace Project.Models
         public string UrlSmallImage { get; set; }
         [JsonProperty("imdb_code")]
         public string ImdbCode { get; set; }
+
+        public string ImdbUrl {
+            get {
+                return $"https://www.imdb.com/name/nm{ImdbCode}/";
+            }
+        }
     }
 }

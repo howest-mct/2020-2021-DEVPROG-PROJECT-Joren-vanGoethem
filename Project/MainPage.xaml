@@ -59,10 +59,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="prevPage" Text="Prev Page" Grid.Column="0" WidthRequest="100" FontSize="16" TextColor="#171717" BackgroundColor="#919191" VerticalOptions="Center" HorizontalOptions="Start" Clicked="PrevPagebtn_Clicked"/>
+                <Button x:Name="prevPage" Text="Prev Page" Grid.Column="0" WidthRequest="110" FontSize="15" TextColor="#171717" BackgroundColor="#919191" VerticalOptions="Center" HorizontalOptions="Start" Clicked="PrevPagebtn_Clicked"/>
                 <Label x:Name="page" Text="Page 1" Grid.Column="1" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
                 <forms:CachedImage x:Name="loadingImage" Grid.Column="1" ErrorPlaceholder="https://i.imgur.com/llF5iyg.gif" Source="https://icon-library.com/images/loading-icon-transparent-background/loading-icon-transparent-background-12.jpg" VerticalOptions="Center" HorizontalOptions="End" IsVisible="False"/>
-                <Button x:Name="nextPage" Text="Next Page" Grid.Column="2" WidthRequest="100" TextColor="White" FontSize="16" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="NextPagebtn_Clicked"/>
+                <Button x:Name="nextPage" Text="Next Page" Grid.Column="2" WidthRequest="110" TextColor="White" FontSize="15" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="NextPagebtn_Clicked"/>
 
             </Grid>
         </Grid>

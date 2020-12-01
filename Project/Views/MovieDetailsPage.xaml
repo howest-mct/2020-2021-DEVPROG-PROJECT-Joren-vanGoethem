@@ -15,6 +15,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
@@ -71,8 +72,12 @@
                     <Label x:Name="description" Text="full description" FontSize="18" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start"/>
                 </ScrollView>
 
-                <Label Text="Suggestions" Grid.Row="6" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
-                <Grid Grid.Row="7" RowSpacing="10">
+                <Button x:Name="comments" Text="Comments" Grid.Row="6" Margin="5" WidthRequest="115" TextColor="White" FontSize="16" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="Start" IsVisible="false" Clicked="comments_Clicked"/>
+                <Button x:Name="cast" Text="Cast" Grid.Row="6" Margin="5" WidthRequest="115" TextColor="White" FontSize="16" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" IsVisible="false" Clicked="cast_Clicked"/>
+                
+
+                <Label Text="Suggestions" Grid.Row="7" FontSize="20" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+                <Grid Grid.Row="8" RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="300"/>
                         <RowDefinition Height="300"/>
@@ -100,7 +105,7 @@
                 </Grid>
 
                 
-                <Grid Grid.Row="8" Margin="6">
+                <Grid Grid.Row="9" Margin="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
