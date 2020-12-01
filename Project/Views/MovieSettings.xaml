@@ -100,16 +100,16 @@
             <Label Text="Order By:" Grid.Row="8" FontSize="19" TextColor="White"/>-->
 
 
-            <Grid Grid.Row="10" Margin="6">
+            <Grid Grid.Row="10" Margin="6,26,6,6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="Cancelbtn" Text="Cancel" FontSize="18" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="Cancelbtn_Clicked"/>
+                <Button x:Name="Cancelbtn" Text="Cancel" FontSize="16" Grid.Column="0" WidthRequest="100" TextColor="White" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="Cancelbtn_Clicked"/>
 
-                <Button x:Name="Savebtn" Text="Save" FontSize="18" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="Savebtn_Clicked"/>
+                <Button x:Name="Savebtn" Text="Save" FontSize="16" Grid.Column="2" WidthRequest="100" TextColor="White" BackgroundColor="#5da93c" VerticalOptions="Center" HorizontalOptions="End" Clicked="Savebtn_Clicked"/>
 
             </Grid>
 

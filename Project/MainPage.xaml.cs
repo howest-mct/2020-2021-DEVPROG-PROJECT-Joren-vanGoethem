@@ -29,7 +29,7 @@ namespace Project
         public string SortBy { get; set; }
         public string OrderBy { get; set; }
 
-        public List<MovieDetails> movieList { get; set; }
+        public List<MovieDetails> MovieList { get; set; }
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
@@ -58,9 +58,15 @@ namespace Project
 
         private async Task LoadMovies(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
-            movieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
-            movies.ItemsSource = movieList;
-            movies.ScrollTo(movieList[0], ScrollToPosition.Start, false);
+            MovieList = App.Cache.Get<List<MovieDetails>>($"movie {page}");
+
+            if (MovieList == null) { 
+                MovieList = await MovieRepository.GetMoviesAsync(limit, page, quality, minimumRating, query, genre, sortBy, orderBy);
+                App.Cache.Set<List<MovieDetails>>($"movie {page}", MovieList);
+            }
+
+            movies.ItemsSource = MovieList;
+            movies.ScrollTo(MovieList[0], ScrollToPosition.Start, false);
             loadingImage.IsVisible = false;
         }
 
