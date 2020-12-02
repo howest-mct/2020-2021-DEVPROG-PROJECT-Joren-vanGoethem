@@ -39,7 +39,7 @@ namespace Project
             {
                 Limit = Convert.ToUInt16(Preferences.Get("Limit", limit));
             }
-            catch (Exception ex)
+            catch
             {
                 Limit = 10;
             }
@@ -47,7 +47,7 @@ namespace Project
             {
                 MinimumRating = Convert.ToUInt16(Preferences.Get("MinimumRating", minimumRating));
             }
-            catch (Exception ex)
+            catch
             {
                 MinimumRating = 0;
             }
@@ -62,6 +62,7 @@ namespace Project
                 DisplayAlert("Alert", "This app requires a network connection.", "OK");
             }
             loadingImage.IsVisible = true;
+            LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
         }
 
         // get all movies and load them into listview

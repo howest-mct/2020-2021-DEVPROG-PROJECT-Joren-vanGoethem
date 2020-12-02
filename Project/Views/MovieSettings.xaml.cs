@@ -33,7 +33,7 @@ namespace Project.Views
             {
                 Limit = Convert.ToUInt16(Preferences.Get("Limit", 10));
             }
-            catch (Exception ex)
+            catch
             {
                 Limit = 10;
             }
@@ -41,7 +41,7 @@ namespace Project.Views
             {
                 MinimumRating = Convert.ToUInt16(Preferences.Get("MinimumRating", 0));
             }
-            catch (Exception ex)
+            catch
             {
                 MinimumRating = 0;
             }
@@ -75,7 +75,7 @@ namespace Project.Views
 
             imdbRating.Text = Convert.ToString(MinimumRating);
 
-            loadPicker();
+            await loadPicker();
         }
 
         // create picker with correct items
@@ -134,7 +134,7 @@ namespace Project.Views
             {
                 Limit = Convert.ToInt16(movieCount.Text);
             }
-            catch (Exception ex)
+            catch
             {
                 Limit = 10;
             }
@@ -142,7 +142,7 @@ namespace Project.Views
             {
                 MinimumRating = Convert.ToInt16(imdbRating.Text);
             }
-            catch (Exception ex)
+            catch
             {
                 MinimumRating = 0;
             }
