@@ -19,9 +19,9 @@ namespace Project.Views
             InitializeComponent();
             Movie = selectedMovie;
 
+            // load the cast and movie title
             movieName.Text = Movie.Title;
             cast.ItemsSource = Movie.Cast;
-            //Debug.WriteLine(Movie.Text);
         }
 
         private void back_Clicked(object sender, EventArgs e)
@@ -29,6 +29,7 @@ namespace Project.Views
             Navigation.PopAsync();
         }
 
+        //redirect to actor's imdb page
         private void url_Clicked(object sender, EventArgs e)
         {
             if (sender is Button button)

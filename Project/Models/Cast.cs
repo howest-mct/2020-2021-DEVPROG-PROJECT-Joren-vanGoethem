@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Project.Models
 {
+    // class for the actors
     public class Cast
     {
         [JsonProperty("name")]

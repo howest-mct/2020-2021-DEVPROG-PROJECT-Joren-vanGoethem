@@ -33,6 +33,7 @@ namespace Project
 
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
+            // load settings from preferences or use default value, try catch to avoid crash on non-int type
             PageCounter = page;
             try
             {
@@ -61,20 +62,9 @@ namespace Project
                 DisplayAlert("Alert", "This app requires a network connection.", "OK");
             }
             loadingImage.IsVisible = true;
-            LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
-            //test();
         }
 
-        private async Task test()
-        {
-            //List<Movie> movies = await MovieRepository.GetMoviesAsync();
-            //foreach (Movie M in movies)
-            //{
-            //    Debug.Write(M.title);
-            //    Debug.Write(M.torrents[0].quality);
-            //}
-        }
-
+        // get all movies and load them into listview
         private async Task LoadMovies(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
             MovieList = App.Cache.Get<List<MovieDetails>>($"moviepage {page}");
@@ -89,6 +79,7 @@ namespace Project
             loadingImage.IsVisible = false;
         }
 
+        // go to movie settings page
         private void MovieFilterBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MovieSettings());

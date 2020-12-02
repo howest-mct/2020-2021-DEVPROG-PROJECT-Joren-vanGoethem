@@ -22,12 +22,14 @@ namespace Project.Views
             LoadTorrents();
         }
 
+        // load all torrents into listview
         private async void LoadTorrents()
         {
             movieName.Text = Movie.Title;
             torrents.ItemsSource = Movie.Torrents;
         }
 
+        // redirect to url for downloading the .torrent file
         private void download_Clicked(object sender, EventArgs e)
         {
             if (sender is Button button)

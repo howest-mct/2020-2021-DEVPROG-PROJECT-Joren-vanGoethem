@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Project.Models
 {
+    // class for the torrent file
     public class Torrent
     {
         [JsonProperty("url")]

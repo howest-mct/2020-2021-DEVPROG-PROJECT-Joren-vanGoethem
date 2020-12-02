@@ -7,6 +7,7 @@ using System.Text;
 
 namespace Project.Models
 {
+    // class for all the movie details, this is used for everything in the entire app
     public class MovieDetails
     {
         [JsonProperty("id")]

@@ -23,22 +23,25 @@ namespace Project.Views
             Movie = selectedMovie;
             InitializeComponent();
             LoadMovieDetails();
+
+            // ad tapgesture recognizer for suggested movies
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
-
-            //suggestion1.GestureRecognizers.Add(tapGestureRecognizer);
 
             List<CachedImage> images = new List<CachedImage>() { suggestion1, suggestion2, suggestion3, suggestion4 };
             foreach (CachedImage C in images)
             {
                 C.GestureRecognizers.Add(tapGestureRecognizer);
             }
+
+            // enable cast button if the movie has a cast
             if (Movie.Cast != null)
             {
                 cast.IsVisible = true;
             }
         }
 
+        //redirect to movie page if suggested movie is tapped
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             if (sender is CachedImage image)
@@ -56,6 +59,7 @@ namespace Project.Views
             }
         }
 
+        // load all movie details into the xaml
         private async Task LoadMovieDetails()
         {
             movieName.Text = Movie.Title;
@@ -69,6 +73,7 @@ namespace Project.Views
             await load_suggestions();
         }
 
+        // go to trailer page with youtube trailer, will display an error if trailer is nog available. can be country related or age restricted
         private void trailer_Clicked(object sender, EventArgs e)
         {
             if (Movie.YtTrailerCode != null) //Debug.WriteLine("No items selected");
@@ -77,17 +82,20 @@ namespace Project.Views
             }
         }
 
+        // go to movie page where all movie screenshots are displayed, this is best viewed with phone sideways
         private void pictures_Clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("Pictures");
             Navigation.PushAsync(new MovieImages(Movie));
         }
 
+        // go to torrent page, here the .torrent files can be downloaded
         private void torrents_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TorrentPage(Movie));
         }
 
+        // load suggested movies according to the current movie's genre
         private async Task load_suggestions()
         {
             Suggestions = App.Cache.Get<List<MovieDetails>>($"moviesuggestions {Movie.Id}");
@@ -103,19 +111,16 @@ namespace Project.Views
             }
         }
 
-        private void back_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
-        }
-
+        //go to cast page if available and show all actors and a link to their imdb page
         private void cast_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CastPage(Movie));
         }
 
-        private void comments_Clicked(object sender, EventArgs e)
+        private void back_Clicked(object sender, EventArgs e)
         {
-            Debug.WriteLine("test");
+            Navigation.PopAsync();
         }
+
     }
 }

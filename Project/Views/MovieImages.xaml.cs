@@ -24,6 +24,7 @@ namespace Project.Views
             LoadImages();
         }
 
+        // load all images, cover + screenshots
         private void LoadImages()
         {
             movieImages = new List<string>() { movie.LargeCoverImage, movie.LargeScreenshotImage1, movie.LargeScreenshotImage2, movie.LargeScreenshotImage3 };
@@ -33,6 +34,7 @@ namespace Project.Views
             currentImage.Source = movieImages[imageCounter];
         }
 
+        // go back one images
         private void prevImage_Clicked(object sender, EventArgs e)
         {
             if (imageCounter > 0)
@@ -50,6 +52,7 @@ namespace Project.Views
            counter.Text = $"{imageCounter + 1}/{movieImages.Count}";
         }
 
+        // go forward one image
         private void nextImage_Clicked(object sender, EventArgs e)
         {
             if (imageCounter >= 0 && imageCounter < movieImages.Count-1 )

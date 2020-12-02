@@ -28,6 +28,7 @@ namespace Project.Views
 
         public MovieSettings()
         {
+            // try catch so it wont crash on a non-int type
             try
             {
                 Limit = Convert.ToUInt16(Preferences.Get("Limit", 10));
@@ -52,6 +53,7 @@ namespace Project.Views
             LoadSettings();
         }
 
+        // load all saved settings
         private async Task LoadSettings()
         {
             movieCount.Text = Convert.ToString(Limit);
@@ -76,6 +78,7 @@ namespace Project.Views
             loadPicker();
         }
 
+        // create picker with correct items
         private async Task loadPicker()
         {
             Dictionary<string, string> Options = new Dictionary<string, string>
@@ -122,6 +125,8 @@ namespace Project.Views
         {
             Navigation.PopAsync();
         }
+
+        //save everything to preferences and load new page with movies
         private void Savebtn_Clicked(object sender, EventArgs e)
         {
             App.Cache.RemoveAll();

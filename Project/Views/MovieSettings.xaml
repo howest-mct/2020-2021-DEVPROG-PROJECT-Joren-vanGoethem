@@ -38,30 +38,22 @@
             <RadioButton x:Name="allQualities" Text="all" FontSize="19" TextColor="White" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" GroupName="Resolutions"/>
 
             <Grid Grid.Row="3" VerticalOptions="Start">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!--<CheckBox Grid.Column="0" x:Name="res720" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>-->
-                <!--<Label Grid.Column="0" Margin="40,0,0,0" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
-                <RadioButton Grid.Column="0" x:Name="res720" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="True" TextColor="White" GroupName="Resolutions"/>
-                <RadioButton Grid.Column="1" x:Name="res1080" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
-                <!--<CheckBox Grid.Column="1" x:Name="res1080" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="1" Margin="40,0,0,0" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
-            </Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Grid.Column="0" x:Name="res720" Text="720p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="True" TextColor="White" GroupName="Resolutions"/>
+                    <RadioButton Grid.Column="1" x:Name="res1080" Text="1080p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                </Grid>
 
             <Grid Grid.Row="4" VerticalOptions="Start">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!--<CheckBox Grid.Column="0" x:Name="res2160" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="0" Margin="40,0,0,0" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
-                <RadioButton Grid.Column="0" x:Name="res2160" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
-                <RadioButton Grid.Column="1" x:Name="res3D" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
-                <!--<CheckBox Grid.Column="1" x:Name="res3D" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="1" Margin="40,0,0,0" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
-            </Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Grid.Column="0" x:Name="res2160" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                    <RadioButton Grid.Column="1" x:Name="res3D" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Resolutions"/>
+                </Grid>
 
             <Grid Grid.Row="5" Margin="0,-50,0,0">
                 <Grid.ColumnDefinitions>
@@ -78,16 +70,13 @@
 
             <Label Text="Order:" Grid.Row="8" FontSize="19" TextColor="White" Margin="5,-40,5,5"/>
             <Grid Grid.Row="9" VerticalOptions="Start" Margin="5,-45,5,5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!--<CheckBox Grid.Column="0" x:Name="res2160" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="0" Margin="40,0,0,0" Text="2160p" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
-                <RadioButton Grid.Column="0" x:Name="asc" Text="Asc" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Ordering"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Grid.Column="0" x:Name="asc" Text="Asc" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Ordering"/>
                 <RadioButton Grid.Column="1" x:Name="desc" Text="Desc" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" IsChecked="False" TextColor="White" GroupName="Ordering"/>
-                <!--<CheckBox Grid.Column="1" x:Name="res3D" HorizontalOptions="Start" VerticalOptions="Center" Color="#5da93c" IsChecked="True"/>
-                <Label Grid.Column="1" Margin="40,0,0,0" Text="3D" FontSize="19" HorizontalOptions="Start" VerticalOptions="Center" TextColor="White"/>-->
+
             </Grid>
 
 

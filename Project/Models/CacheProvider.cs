@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EindProject.Models
 {
+    // Class for caching pages into memory
     public class CacheProvider
     {
         List<string> keys = new List<string>();
@@ -15,6 +16,7 @@ namespace EindProject.Models
             this.cache = new MemoryCache(new MemoryCacheOptions { });
         }
 
+        // get cached page from memory using the key
         internal T Get<T>(string key)
         {
             if (this.cache.TryGetValue(key, out T value))
@@ -23,12 +25,14 @@ namespace EindProject.Models
                 return default(T);
         }
 
+        // remove specific page from memory using the key
         internal void Remove(string key)
         {
             this.keys.Remove(key);
             this.cache.Remove(key);
         }
 
+        // clear entire cache
         internal void RemoveAll()
         {
             foreach (string item in this.keys)
@@ -38,6 +42,7 @@ namespace EindProject.Models
             this.keys.Clear();
         }
 
+        // adds a page into cache memory with a string key
         internal void Set<T>(string key, T value)
         {
             DateTimeOffset expiry = DateTimeOffset.Now.AddHours(2);

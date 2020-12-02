@@ -13,11 +13,9 @@ namespace Project.Repositories
 {
     class MovieRepository
     {
-
         private const string BaseUrl = "https://yts.mx/api/v2/";
        
-
-        // List<Movie>
+        // get a list of movies
         public async static Task<List<MovieDetails>> GetMoviesAsync(int limit = 10, int page = 1, 
         string quality = "all", int minimumRating = 0, string queryTerm = "0", string genre = "all", 
         string sortBy = "rating", string orderBy = "desc", bool withRtRatings = false)
@@ -37,6 +35,8 @@ namespace Project.Repositories
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(json);
                 JToken allMovies = jsonObject.SelectToken("data.movies");
                 movies = allMovies.ToObject<List<Movie>>();
+
+                // get details for each movie in the movielist
                 foreach(Movie movie in movies)
                 {
                     moviesDetails.Add(await GetMovieDetailsAsync(movie.Id));
@@ -45,6 +45,7 @@ namespace Project.Repositories
             }
         }
 
+        // get details for the specific movie id with images and cast
         public async static Task<MovieDetails> GetMovieDetailsAsync(int movieId, bool withImages = true, bool withCast = true)
         {
             MovieDetails movieDetails = new MovieDetails();
@@ -89,8 +90,6 @@ namespace Project.Repositories
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             return client;
         }
-
-
 
     }
 }
