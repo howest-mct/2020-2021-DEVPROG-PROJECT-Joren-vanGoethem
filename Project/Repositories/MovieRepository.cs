@@ -14,7 +14,7 @@ namespace Project.Repositories
     class MovieRepository
     {
 
-        private const string _APILINK = "https://yts.mx/api/v2/";
+        private const string BaseUrl = "https://yts.mx/api/v2/";
        
 
         // List<Movie>
@@ -28,7 +28,7 @@ namespace Project.Repositories
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
             {
-                string url = $"{_APILINK}list_movies.json?limit={limit}&page={page}" +
+                string url = $"{BaseUrl}list_movies.json?limit={limit}&page={page}" +
                     $"&quality={quality}&minimum_rating={minimumRating}&query_term={queryTerm}" +
                     $"&genre={genre}&sort_by={sortBy}&order_by={orderBy}&with_rt_ratings={withRtRatings}"; //Only the part after the api/v2/ and ALWAYS add ?
                 Debug.WriteLine(url.ToLower());
@@ -52,7 +52,7 @@ namespace Project.Repositories
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
             {
-                string url = $"{_APILINK}movie_details.json?movie_id={movieId}&with_images={withImages}&with_cast={withCast}"; //Only the part after the api/v2/ and ALWAYS add ?
+                string url = $"{BaseUrl}movie_details.json?movie_id={movieId}&with_images={withImages}&with_cast={withCast}"; //Only the part after the api/v2/ and ALWAYS add ?
                 Debug.WriteLine(url.ToLower());
 
                 string json = await Client.GetStringAsync(url.ToLower());
@@ -71,7 +71,7 @@ namespace Project.Repositories
             //httpClient nodig --> API call uitvoeren
             using (HttpClient Client = await GetClientAsync())
             {
-                string url = $"{_APILINK}movie_suggestions.json?movie_id={movieId}"; //Only the part after the api/v2/ and ALWAYS add ?
+                string url = $"{BaseUrl}movie_suggestions.json?movie_id={movieId}"; //Only the part after the api/v2/ and ALWAYS add ?
                 Debug.WriteLine(url);
 
                 string json = await Client.GetStringAsync(url);
@@ -82,8 +82,6 @@ namespace Project.Repositories
                 return suggestions;
             }
         }
-
-
 
         private async static Task<HttpClient> GetClientAsync()
         {

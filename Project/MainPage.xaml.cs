@@ -34,14 +34,33 @@ namespace Project
         public MainPage(int limit = 10, int page = 1, string quality = "all", int minimumRating = 0, string query = "0", string genre = "all", string sortBy = "rating", string orderBy = "desc")
         {
             PageCounter = page;
-            Limit = Preferences.Get("Limit", limit);
+            try
+            {
+                Limit = Convert.ToUInt16(Preferences.Get("Limit", limit));
+            }
+            catch (Exception ex)
+            {
+                Limit = 10;
+            }
+            try
+            {
+                MinimumRating = Convert.ToUInt16(Preferences.Get("MinimumRating", minimumRating));
+            }
+            catch (Exception ex)
+            {
+                MinimumRating = 0;
+            }
             Quality = Preferences.Get("Quality", quality);
-            MinimumRating = Preferences.Get("MinimumRating", minimumRating);
             Query = query;
             Genre = Preferences.Get("Genre", genre);
             SortBy = Preferences.Get("SortBy", sortBy);
             OrderBy = Preferences.Get("OrderBy", orderBy);
             InitializeComponent();
+            if (Connectivity.NetworkAccess == NetworkAccess.None)
+            {
+                DisplayAlert("Alert", "This app requires a network connection.", "OK");
+            }
+            loadingImage.IsVisible = true;
             LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
             //test();
         }
@@ -91,9 +110,9 @@ namespace Project
             {
                 loadingImage.IsVisible = true;
                 PageCounter -= 1;
-                Limit = Preferences.Get("Limit", 10);
+                Limit = Convert.ToUInt16(Preferences.Get("Limit", 10));
                 Quality = Preferences.Get("Quality", "all");
-                MinimumRating = Preferences.Get("MinimumRating", 0);
+                MinimumRating = Convert.ToUInt16(Preferences.Get("MinimumRating", 0));
                 Genre = Preferences.Get("Genre", "all");
                 SortBy = Preferences.Get("SortBy", "rating");
                 OrderBy = Preferences.Get("OrderBy", "desc");
@@ -112,9 +131,9 @@ namespace Project
         {
             loadingImage.IsVisible = true;
             PageCounter += 1;
-            Limit = Preferences.Get("Limit", 10);
+            Limit = Convert.ToUInt16(Preferences.Get("Limit", 10));
             Quality = Preferences.Get("Quality", "all");
-            MinimumRating = Preferences.Get("MinimumRating", 0);
+            MinimumRating = Convert.ToUInt16(Preferences.Get("MinimumRating", 0));
             Genre = Preferences.Get("Genre", "all");
             SortBy = Preferences.Get("SortBy", "rating");
             OrderBy = Preferences.Get("OrderBy", "desc");
