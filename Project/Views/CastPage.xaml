@@ -14,14 +14,15 @@
 
             <Label Text="Cast From" Grid.Row="0" TextColor="White" FontSize="20" FontAttributes="Bold"/>
             <Label x:Name="movieName" Text="movie" Grid.Row="0" TextColor="White" Margin="111,0,0,0" FontSize="20" FontAttributes="Bold"/>
-            <ListView x:Name="cast" Grid.Row="1" RowHeight="130" SeparatorColor="#171717">
+            <ListView x:Name="cast" Grid.Row="1" Margin="2" RowHeight="130" SeparatorColor="#171717">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
 
                                 <forms:CachedImage x:Name="image" Grid.Column="0" ErrorPlaceholder="https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg" Aspect="AspectFit" Source="{Binding UrlSmallImage}" Margin="1,1,0,1"/>
@@ -39,13 +40,13 @@
 
                                     <Label Text="Character: " Grid.Row="2" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="18" FontAttributes="Bold"/>
                                     <Label x:Name="character" Text="{Binding CharacterName}" Grid.Row="3" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
-
-                                    <Grid Grid.Row="1" Grid.RowSpan="2" Margin="175,0,0,0" VerticalOptions="Center" HorizontalOptions="End">
-                                        <Button x:Name="url" Text="{Binding ImdbUrl}" WidthRequest="100" TextColor="#5da93c" FontSize="1" BackgroundColor="#5da93c" Clicked="url_Clicked" HorizontalOptions="End"/>
-                                        <Label Text="Imdb Page" TextColor="White" FontSize="17" Margin="0,12,8,0" FontAttributes="Bold" HorizontalOptions="End"/>
-                                    </Grid>
-
                                 </Grid>
+
+                                <Grid Grid.Column="2" Margin="3" VerticalOptions="Center" HorizontalOptions="End">
+                                    <Button x:Name="url" Text="{Binding ImdbUrl}" WidthRequest="100" TextColor="#5da93c" FontSize="1" BackgroundColor="#5da93c" Clicked="url_Clicked" HorizontalOptions="End"/>
+                                    <Label Text="Imdb Page" TextColor="White" FontSize="17" Margin="0,12,8,0" FontAttributes="Bold" HorizontalOptions="End"/>
+                                </Grid>
+
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -53,7 +54,7 @@
             </ListView>
             
             
-            <Grid Grid.Row="2" Margin="6">
+            <Grid Grid.Row="2" Margin="5,1,5,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
