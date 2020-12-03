@@ -6,8 +6,8 @@
              NavigationPage.HasNavigationBar="False"
              >
     <ContentPage.Content>
-        <ScrollView>
-        <Grid RowSpacing="-20">
+        <ScrollView Margin="10,0,10,0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -68,7 +68,7 @@
             <Label Text="Sort By:" Grid.Row="6" FontSize="19" TextColor="White"/>
             <Picker x:Name="sortByPicker" Grid.Row="7" VerticalOptions="Start" Margin="5,-40,5,5" FontSize="19" TextColor="White"/>
 
-            <Label Text="Order:" Grid.Row="8" FontSize="19" TextColor="White" Margin="5,-40,5,5"/>
+            <Label Text="Order By:" Grid.Row="8" FontSize="19" TextColor="White" Margin="5,-40,5,5"/>
             <Grid Grid.Row="9" VerticalOptions="Start" Margin="5,-45,5,5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
