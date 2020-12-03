@@ -37,10 +37,10 @@
                                 <Label Text="File Size:" Grid.Row="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
                                 <Label x:Name="size" Text="{Binding Size}" Margin="70,0,0,0" Grid.Row="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
 
-                                <Grid Grid.Row="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End">
-                                    <Button x:Name="download" Text="{Binding Url}" WidthRequest="150" TextColor="#5da93c" FontSize="1" BackgroundColor="#5da93c" Clicked="download_Clicked"/>
-                                    <Label Text="Download" TextColor="White" FontSize="20" Margin="30,12,0,0" FontAttributes="Bold"/>
-                                </Grid>
+                                <!--<Grid Grid.Row="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End">-->
+                                    <Button x:Name="download" Text="Download" BindingContext="{Binding Url}" WidthRequest="140" TextColor="White" FontSize="18" FontAttributes="Bold" BackgroundColor="#5da93c" Clicked="download_Clicked" Grid.Row="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="End"/>
+                                    <!--<Label Text="Download" TextColor="White" FontSize="20" Margin="30,12,0,0" FontAttributes="Bold"/>-->
+                                <!--</Grid>-->
 
                             </Grid>
                         </ViewCell>

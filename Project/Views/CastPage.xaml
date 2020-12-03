@@ -42,10 +42,8 @@
                                     <Label x:Name="character" Text="{Binding CharacterName}" Grid.Row="3" TextColor="#e8e8e8" VerticalOptions="Center" HorizontalOptions="Start" FontSize="17"/>
                                 </Grid>
 
-                                <Grid Grid.Column="2" Margin="3" VerticalOptions="Center" HorizontalOptions="End">
-                                    <Button x:Name="url" Text="{Binding ImdbUrl}" WidthRequest="100" TextColor="#5da93c" FontSize="1" BackgroundColor="#5da93c" Clicked="url_Clicked" HorizontalOptions="End"/>
-                                    <Label Text="Imdb Page" TextColor="White" FontSize="17" Margin="0,12,8,0" FontAttributes="Bold" HorizontalOptions="End"/>
-                                </Grid>
+                                <Button x:Name="url" Text="Imdb Page" BindingContext="{Binding ImdbUrl}" WidthRequest="100" TextColor="White" FontSize="16" BackgroundColor="#5da93c" Clicked="url_Clicked" Grid.Column="2" Margin="3" VerticalOptions="Center" HorizontalOptions="End"/>
+                                    
 
                             </Grid>
                         </ViewCell>

@@ -34,7 +34,7 @@ namespace Project.Views
         {
             if (sender is Button button)
             {
-                Launcher.OpenAsync(new Uri(button.Text));
+                Launcher.OpenAsync(new Uri(Convert.ToString(button.BindingContext)));
             }
         }
     }
