@@ -57,12 +57,23 @@ namespace Project
             SortBy = Preferences.Get("SortBy", sortBy);
             OrderBy = Preferences.Get("OrderBy", orderBy);
             InitializeComponent();
+            //if (Connectivity.NetworkAccess == NetworkAccess.None)
+            //{
+            //    await DisplayAlert("Alert", "This app requires a network connection.", "OK");
+            //}
+            //loadingImage.IsVisible = true;
+            //LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
+            init();
+        }
+
+        private async Task init()
+        {
             if (Connectivity.NetworkAccess == NetworkAccess.None)
             {
-                DisplayAlert("Alert", "This app requires a network connection.", "OK");
+                await DisplayAlert("Alert", "This app requires a network connection.", "OK");
             }
             loadingImage.IsVisible = true;
-            LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
+            await LoadMovies(Limit, PageCounter, Quality, MinimumRating, Query, Genre, SortBy, OrderBy);
         }
 
         // get all movies and load them into listview
