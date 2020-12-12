@@ -37,5 +37,10 @@ namespace Project.Views
                 Launcher.OpenAsync(new Uri(Convert.ToString(button.BindingContext)));
             }
         }
+
+        private void home_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
+        }
     }
 }

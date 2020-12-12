@@ -55,6 +55,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="back" Text="Back" Grid.Column="0" WidthRequest="110" TextColor="White" FontSize="16" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Start" Clicked="back_Clicked"/>
+                <Button x:Name="home" Text="Home" Grid.Column="1" WidthRequest="100" TextColor="White" FontSize="16" BackgroundColor="#C81E1E" VerticalOptions="Center" HorizontalOptions="Center" Clicked="home_Clicked"/>
                 
             </Grid>
 

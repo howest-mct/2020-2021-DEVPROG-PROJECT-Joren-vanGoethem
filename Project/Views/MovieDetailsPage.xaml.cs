@@ -44,18 +44,25 @@ namespace Project.Views
         //redirect to movie page if suggested movie is tapped
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            if (sender is CachedImage image)
+            try
             {
-                for (int i = 0; i<Suggestions.Count; i++)
+                if (sender is CachedImage image)
                 {
-                    Debug.WriteLine(Convert.ToString(image.Source).Split(' ')[1]);
-                    Debug.WriteLine(Suggestions[i].MediumCoverImage);
-                    if (Convert.ToString(image.Source).Split(' ')[1] == Suggestions[i].MediumCoverImage)
+                    for (int i = 0; i<Suggestions.Count; i++)
                     {
-                        MovieDetails tappedmovie = await MovieRepository.GetMovieDetailsAsync(Suggestions[i].Id);
-                        await Navigation.PushAsync(new MovieDetailsPage(tappedmovie));
+                        Debug.WriteLine(Convert.ToString(image.Source).Split(' ')[1]);
+                        Debug.WriteLine(Suggestions[i].MediumCoverImage);
+                        if (Convert.ToString(image.Source).Split(' ')[1] == Suggestions[i].MediumCoverImage)
+                        {
+                            MovieDetails tappedmovie = await MovieRepository.GetMovieDetailsAsync(Suggestions[i].Id);
+                            await Navigation.PushAsync(new MovieDetailsPage(tappedmovie));
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            { 
+                throw;
             }
         }
 
@@ -122,5 +129,9 @@ namespace Project.Views
             Navigation.PopAsync();
         }
 
+        private void home_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
+        }
     }
 }

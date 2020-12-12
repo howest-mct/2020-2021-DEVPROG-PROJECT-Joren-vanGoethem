@@ -42,5 +42,10 @@ namespace Project.Views
         {
             Navigation.PopAsync();
         }
+
+        private void home_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync();
+        }
     }
 }
